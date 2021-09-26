@@ -3,4 +3,6 @@
     <string name="Home_fragment">Hello blank fragment</string>
     <string name="favorite_fragment">favorite_fragment</string>
     <string name="My_page_fragment">My_page_fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

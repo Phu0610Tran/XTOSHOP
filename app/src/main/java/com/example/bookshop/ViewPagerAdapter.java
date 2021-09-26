@@ -22,6 +22,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new FavoriteFragment();
             case 2:
                 return new MyPageFragment();
+            case 3:
+                return new LoginFragment();
 
             default:
                 return new HomeFragment();
@@ -30,7 +32,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Nullable
@@ -47,6 +49,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 title="My page";
                 break;
+            case 3:
+                title="Login";
         }
         return title;
     }
