@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#F0F4F4">
 
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/ViewpagerMain"
+    <LinearLayout
+        android:id="@+id/index"
         android:layout_width="match_parent"
-        android:layout_height="589dp"
-        android:background="#2196F3">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
 
-    </androidx.viewpager.widget.ViewPager>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayoutMain"
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
-        app:tabSelectedTextColor="#151414"></com.google.android.material.tabs.TabLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:layout_above="@+id/bottom_navi"
+            android:background="@color/blue_nhat" />
 
-</LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:itemBackground="@color/white"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/black"
+            app:menu="@menu/list_menu">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </LinearLayout>
+
+</RelativeLayout>

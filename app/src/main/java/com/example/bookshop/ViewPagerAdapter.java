@@ -24,7 +24,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new MyPageFragment();
             case 3:
                 return new LoginFragment();
-
             default:
                 return new HomeFragment();
         }
@@ -35,23 +34,4 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         return 4;
     }
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        String title = "";
-        switch (position){
-            case 0:
-                title="Home";
-                break;
-            case 1:
-                title="Favorite";
-                break;
-            case 2:
-                title="My page";
-                break;
-            case 3:
-                title="Login";
-        }
-        return title;
-    }
 }

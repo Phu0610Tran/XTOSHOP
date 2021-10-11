@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="@string/Home_fragment"
+        android:hint="@string/Home_page"
         android:layout_margin="20dp"
         android:textSize="20sp"
         android:textColorHint="#5B8827"/>

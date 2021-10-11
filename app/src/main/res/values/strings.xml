@@ -1,8 +1,18 @@
 <resources>
-    <string name="app_name">BOOKSHOP</string>
-    <string name="Home_fragment">Hello blank fragment</string>
-    <string name="favorite_fragment">favorite_fragment</string>
-    <string name="My_page_fragment">My_page_fragment</string>
+    <string name="app_name">Shop Quần Áo</string>
+    <string name="username">Tên tài khoản</string>
+    <string name="password">Mật khẩu</string>
+    <string name="repassword">Nhập lại mật khẩu</string>
+    <string name="sdt">Số điện thoại</string>
+    <string name="email">Email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Home_page">Home</string>
+    <string name="Clothe_page">Clothes</string>
+    <string name="Messen_page">Messenge</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_home">Home</string>
+    <string name="action_search">Search</string>
+    <string name="action_bell">Bell</string>
+    <string name="action_user">User</string>
 </resources>
