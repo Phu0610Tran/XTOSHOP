@@ -11,8 +11,23 @@
     <string name="Messen_page">Messenge</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="action_home">Home</string>
-    <string name="action_search">Search</string>
-    <string name="action_bell">Bell</string>
-    <string name="action_user">User</string>
+    <string name="action_home">Trang Chủ</string>
+    <string name="action_search">Tìm Kiếm</string>
+    <string name="action_bell">Thông Báo</string>
+    <string name="action_user">Người Dùng</string>
+    <string name="DangNhap">Đăng Nhập</string>
+    <string name="DangKy">Đăng Ký</string>
+    <string name="VanHoc">Sách Văn Học</string>
+    <string name="KhoaHoc">Sách Khoa Học</string>
+    <string name="NguoiLon">Sách Người Lớn</string>
+    <string name="Moi">Sách Mới</string>
+    <string name="profile">Thông Tin Người Dùng</string>
+    <string name="logout">Đăng Xuất</string>
+    <string name="user">Người Dùng</string>
+    <string name="home">Trang Chủ</string>
+    <string name="remove">Xóa</string>
+    <string name="my_cart">Giỏ hàng</string>
+    <string name="nameshop">Book Shop</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
 </resources>

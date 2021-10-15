@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/action_home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="@string/action_home"/>
-    <item
-        android:id="@+id/action_search"
-        android:icon="@drawable/baseline_search_24"
-        android:title="@string/action_search"/>
-    <item
-        android:id="@+id/action_bell"
-        android:icon="@drawable/baseline_notifications_24"
-        android:title="@string/action_bell"/>
-    <item
-        android:id="@+id/action_user"
-        android:icon="@drawable/baseline_account_circle_24"
-        android:title="@string/action_user"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_Vanhoc"
+            android:title="@string/VanHoc" />
+        <item
+            android:id="@+id/nav_Khoahoc"
+            android:title="@string/KhoaHoc" />
+        <item
+            android:id="@+id/nav_Nguoilon"
+            android:title="@string/NguoiLon" />
+        <item
+            android:id="@+id/nav_Moi"
+            android:title="@string/Moi" />
+    </group>
+
+    <item android:title="@string/user">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="@string/profile" />
+                <item
+                    android:id="@+id/nav_cart"
+                    android:title="@string/my_cart" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/DangNhap" />
+            </group>
+        </menu>
+    </item>
 </menu>
