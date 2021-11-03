@@ -13,26 +13,26 @@ import android.widget.TextView;
 
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.CreateDatabase;
-import com.example.bookshop.Fragment.TrangChuFragment;
+import com.example.bookshop.Fragment.SachMoiFragment;
 import com.example.bookshop.R;
 
 import java.util.List;
 
-public class SanPhamDAO extends BaseAdapter {
+public class SachMoiDAO extends BaseAdapter {
 
     SQLiteDatabase database;
 
-    private TrangChuFragment context;
+    private SachMoiFragment context;
     private int layout;
     public static List<SanPhamDTO> sanPhamDTOList;
     int id;
 
-    public SanPhamDAO(Context context){
+    public SachMoiDAO(Context context){
         CreateDatabase createDatabase = new CreateDatabase(context);
         database = createDatabase.open();
     }
 
-    public SanPhamDAO(TrangChuFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
+    public SachMoiDAO(SachMoiFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
         this.context = context;
         this.layout = layout;
         this.sanPhamDTOList = sanPhamDTOList;

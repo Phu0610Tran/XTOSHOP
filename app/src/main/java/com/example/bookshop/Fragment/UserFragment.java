@@ -1,6 +1,5 @@
 package com.example.bookshop.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.bookshop.LoginActivity;
 import com.example.bookshop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -45,17 +43,6 @@ public class UserFragment extends Fragment {
 
     private void AnhXa() {
         txt_Tentaikhoan = mView.findViewById(R.id.txtUsername);
-        btn_Login = mView.findViewById(R.id.btnLogin);
-
-        btn_Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-
-                startActivity(intent);
-
-            }
-        });
     }
 
 }

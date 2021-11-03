@@ -1,7 +1,6 @@
 package com.example.bookshop;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -16,21 +15,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.bookshop.Fragment.GioHangFragment;
+import com.example.bookshop.Fragment.SachKhoaHocFragment;
+import com.example.bookshop.Fragment.SachMoiFragment;
+import com.example.bookshop.Fragment.SachNguoiLonFragment;
+import com.example.bookshop.Fragment.SachVanHocFragment;
+import com.example.bookshop.Fragment.TrangChuFragment;
+import com.example.bookshop.Fragment.UserFragment;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    private RecyclerView homeRecyclerView;
-    private Map<String, Integer> hashMap;
-    private static int countTotalProducts;
+    private static final int FRAGMENT_HOME = 1;
+    private static final int FRAGMENT_SACHVANHOC = 2;
+    private static final int FRAGMENT_SACHKHOAHOC = 3;
+    private static final int FRAGMENT_SACHNGUOILON = 4;
+    private static final int FRAGMENT_SACHMOI = 5;
+    private static final int FRAGMENT_NGUOIDUNG = 6;
+    private static final int FRAGMENT_GIOHANG = 7;
+
+    private int currentFragment = FRAGMENT_HOME;
 
     // Drawer
     private DrawerLayout drawerLayout;
@@ -38,7 +45,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     // Drawer
 
-    private ProgressDialog loadingBar;
     TextView txt_TenTaiKhoan;
 
     @SuppressLint("RestrictedApi")
@@ -47,39 +53,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        countTotalProducts = 0 ;
-
-        hashMap = new HashMap<>();
-
-        homeRecyclerView = findViewById(R.id.home_recycler_view);
-        homeRecyclerView.setHasFixedSize(true);
-        homeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-
-//        loadingBar = new ProgressDialog(this);
-//        loadingBar.setMessage("Loading products");
-//        loadingBar.setCanceledOnTouchOutside(false);
-//        loadingBar.show();
-
-
-        // Drawer
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.home_nav_view);
-        toolbar = findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
-        // Drawer
-
+        AnhXa();
         HienThiTen();
     }
 
@@ -93,6 +67,25 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         txt_TenTaiKhoan.setTextColor(Color.WHITE);
     }
 
+    private void AnhXa() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.home_nav_view);
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+        // Drawer
+
+        replaceFragment(new TrangChuFragment());
+    }
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -104,63 +97,61 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_logout:
-                SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("Remember", "Thất bại");
-                editor.putString("token", null);
-                editor.apply();
+        int id = item.getItemId();
 
-                startActivity(new Intent(this, LoginActivity.class));
-                finish();
-                break;
+        if (id == R.id.nav_logout) {
+            SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("Remember", "Failed");
+            editor.putString("token", null);
+            editor.apply();
 
-            case R.id.nav_home:
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_Vanhoc:
-                Intent menIntent = new Intent(this, SubCategoryActivity.class);
-                menIntent.putExtra("CategoryName", "Sách Văn Học");
-                startActivity(menIntent);
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_Khoahoc:
-                Intent womenIntent = new Intent(this, SubCategoryActivity.class);
-                womenIntent.putExtra("CategoryName", "Sách Khoa Học");
-                startActivity(womenIntent);
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
-
-
-            case R.id.nav_Nguoilon:
-                Intent PeopleIntent = new Intent(this, SubCategoryActivity.class);
-                PeopleIntent.putExtra("CategoryName", "Sách Người Lớn");
-                startActivity(PeopleIntent);
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_Moi:
-                Intent newBornIntent = new Intent(this, SubCategoryActivity.class);
-                newBornIntent.putExtra("CategoryName", "Sách Mới");
-                startActivity(newBornIntent);
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
-
-//            case R.id.nav_profile:
-//                Intent newProfileIntent = new Intent(this, UserFragment.class);
-//                startActivity(newProfileIntent);
-//                drawerLayout.closeDrawer(GravityCompat.START);
-//                break;
-
-            case R.id.nav_cart:
-                Intent intent = new Intent(this, CartActivity.class);
-                startActivity(intent);
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }else if (id == R.id.nav_home) {
+            if (FRAGMENT_HOME != currentFragment) {
+                replaceFragment(new TrangChuFragment());
+                currentFragment = FRAGMENT_HOME;
+            }
+        }else if (id == R.id.nav_Vanhoc) {
+            if (FRAGMENT_SACHVANHOC != currentFragment) {
+                replaceFragment(new SachVanHocFragment());
+                currentFragment = FRAGMENT_SACHVANHOC;
+            }
+        }else if (id == R.id.nav_Khoahoc) {
+            if (FRAGMENT_SACHKHOAHOC != currentFragment) {
+                replaceFragment(new SachKhoaHocFragment());
+                currentFragment = FRAGMENT_SACHKHOAHOC;
+            }
+        }else if (id == R.id.nav_Nguoilon) {
+            if (FRAGMENT_SACHNGUOILON != currentFragment) {
+                replaceFragment(new SachNguoiLonFragment());
+                currentFragment = FRAGMENT_SACHNGUOILON;
+            }
+        }else if (id == R.id.nav_Moi) {
+            if (FRAGMENT_SACHMOI != currentFragment) {
+                replaceFragment(new SachMoiFragment());
+                currentFragment = FRAGMENT_SACHMOI;
+            }
+        }else if (id == R.id.nav_profile) {
+            if (FRAGMENT_NGUOIDUNG != currentFragment) {
+                replaceFragment(new UserFragment());
+                currentFragment = FRAGMENT_NGUOIDUNG;
+            }
+        }else if (id == R.id.nav_cart) {
+            if (FRAGMENT_GIOHANG != currentFragment) {
+                replaceFragment(new GioHangFragment());
+                currentFragment = FRAGMENT_GIOHANG;
+            }
         }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void  replaceFragment (Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content, fragment);
+        fragmentTransaction.commit();
     }
 }

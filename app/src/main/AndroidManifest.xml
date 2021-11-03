@@ -10,16 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOOKSHOP">
         <activity
-            android:name=".SubCategoryActivity"
-            android:exported="true" />
-        <activity
             android:name=".HomeActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".CartActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

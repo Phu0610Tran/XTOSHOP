@@ -5,28 +5,12 @@
     android:id="@+id/MyUser"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="56dp"
     android:background="@color/xam"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".FragmentApp.UserFragment">
+    tools:context=".Fragment.UserFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.2"
-        android:background="#0D8AED"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size10dp"
-            android:gravity="center"
-            android:hint="Thông Tin"
-            android:textColorHint="#000000"
-            android:textSize="30dp" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="10"
             android:background="@color/white">
 
             <ImageView
@@ -62,15 +45,6 @@
                 android:textSize="@dimen/size20dp"
                 android:textColor="@color/black">
             </TextView>
-
-            <ImageView
-                android:id="@+id/ibtnGiohang"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:paddingLeft="@dimen/size10dp"
-                android:src="@drawable/baseline_shopping_cart_24" />
 
         </LinearLayout>
 
@@ -264,16 +238,5 @@
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:text="Đăng Nhặp"
-        android:textSize="16dp"
-        android:textColor="@color/black"
-        android:backgroundTint="#0D8AED"/>
 
 </LinearLayout>

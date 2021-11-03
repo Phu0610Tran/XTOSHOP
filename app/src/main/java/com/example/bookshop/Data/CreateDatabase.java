@@ -35,6 +35,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String tbl_SANPHAM_HINHANH = "HINHANH";
     public static String tbl_SANPHAM_MOTA = "MOTA";
     public static String tbl_SANPHAM_IDDANHMUC = "IDDANHMUC";
+    public static String tbl_SANPHAM_IDSP_NEW = "SPNEW";
 
     public static String tbl_DANHMUCSANPHAM_IDDANHMUC = "IDDANHMUC";
     public static String tbl_DANHMUCSANPHAM_TENDANHMUC = "TENDANHMUC";
@@ -68,7 +69,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
 
     public CreateDatabase(@Nullable Context context) {
-        super(context, "ClothesDatabase", null, 2);
+        super(context, "BookShop", null, 2);
     }
 
     @Override
@@ -81,8 +82,9 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 + tbl_QUYEN_TENQUYEN + " TEXT )";
 
         String SANPHAM = "CREATE TABLE " + tbl_SANPHAM + "(" + tbl_SANPHAM_IDSP + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + tbl_SANPHAM_TENSANPHAM + " TEXT , " + tbl_SANPHAM_GIA + " INTEGER , " + tbl_SANPHAM_SOLUONG + " INTEGER, "
-                + tbl_SANPHAM_HINHANH + " TEXT, " + tbl_SANPHAM_MOTA + " TEXT, " + tbl_SANPHAM_IDDANHMUC + " INTEGER )";
+                + tbl_SANPHAM_HINHANH + " TEXT, "+ tbl_SANPHAM_TENSANPHAM + " TEXT , " + tbl_SANPHAM_GIA + " INTEGER , "
+                + tbl_SANPHAM_SOLUONG + " INTEGER, " + tbl_SANPHAM_MOTA + " TEXT, " + tbl_SANPHAM_IDDANHMUC + " INTEGER, "
+                + tbl_SANPHAM_IDSP_NEW + " INTEGER )";
 
         String DANHMUCSANPHAM = "CREATE TABLE " + tbl_DANHMUCSANPHAM + "(" + tbl_DANHMUCSANPHAM_IDDANHMUC + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + tbl_DANHMUCSANPHAM_TENDANHMUC + " TEXT )";
@@ -112,7 +114,6 @@ public class CreateDatabase extends SQLiteOpenHelper {
         db.execSQL(GOPY);
 
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
