@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.CreateDatabase;
-import com.example.bookshop.Fragment.SachNguoiLonFragment;
+import com.example.bookshop.Fragment.WebFragment;
 import com.example.bookshop.R;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class SachNguoiLonDAO extends BaseAdapter {
 
     SQLiteDatabase database;
 
-    private SachNguoiLonFragment context;
+    private WebFragment context;
     private int layout;
     public static List<SanPhamDTO> sanPhamDTOList;
     int id;
@@ -32,7 +32,7 @@ public class SachNguoiLonDAO extends BaseAdapter {
         database = createDatabase.open();
     }
 
-    public SachNguoiLonDAO(SachNguoiLonFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
+    public SachNguoiLonDAO(WebFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
         this.context = context;
         this.layout = layout;
         this.sanPhamDTOList = sanPhamDTOList;

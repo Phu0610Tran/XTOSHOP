@@ -5,18 +5,33 @@
             android:id="@+id/nav_home"
             android:title="@string/home" />
         <item
-            android:id="@+id/nav_Vanhoc"
-            android:title="@string/VanHoc" />
+            android:id="@+id/nav_contact"
+            android:title="Liên Hệ" />
         <item
-            android:id="@+id/nav_Khoahoc"
-            android:title="@string/KhoaHoc" />
-        <item
-            android:id="@+id/nav_Nguoilon"
-            android:title="@string/NguoiLon" />
-        <item
-            android:id="@+id/nav_Moi"
-            android:title="@string/Moi" />
+            android:id="@+id/nav_Feedback"
+            android:title="Góp Ý" />
     </group>
+    <item android:title="Thể Loại">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_Android"
+                    android:title="@string/Android" />
+                <item
+                    android:id="@+id/nav_NgonnguC"
+                    android:title="@string/NgonnguC" />
+                <item
+                    android:id="@+id/nav_Web"
+                    android:title="@string/HTML" />
+                <item
+                    android:id="@+id/nav_Java"
+                    android:title="@string/Java" />
+                <item
+                    android:id="@+id/nav_Moi"
+                    android:title="@string/Moi" />
+            </group>
+        </menu>
+    </item>
 
     <item android:title="@string/user">
         <menu>

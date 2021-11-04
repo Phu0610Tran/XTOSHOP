@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Login">
+    tools:context=".LoginActivity">
 
     <ImageButton
         android:id="@+id/ibtnExit"
@@ -18,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
         android:src="@drawable/background_header" />
 
 

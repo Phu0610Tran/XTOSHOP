@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="56dp"
-    tools:context=".Fragment.SachNguoiLonFragment">
+    tools:context=".Fragment.WebFragment">
 
     <GridView
         android:id="@+id/gridviewSanPham"

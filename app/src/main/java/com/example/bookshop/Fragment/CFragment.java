@@ -9,7 +9,7 @@ import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.bookshop.DAO.SachVanHocDAO;
+import com.example.bookshop.DAO.SachKhoaHocDAO;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.R;
@@ -17,17 +17,17 @@ import com.example.bookshop.R;
 import java.util.ArrayList;
 
 
-public class SachVanHocFragment extends Fragment {
+public class CFragment extends Fragment {
 
     private View view;
 
     private static Database database;
     GridView gridView_SanPham;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
-    SachVanHocDAO adapter;
+    SachKhoaHocDAO adapter;
 
 
-    public SachVanHocFragment() {
+    public CFragment() {
         // Required empty public constructor
     }
 
@@ -44,7 +44,7 @@ public class SachVanHocFragment extends Fragment {
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
-        adapter = new SachVanHocDAO(SachVanHocFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
+        adapter = new SachKhoaHocDAO(CFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
         registerForContextMenu(gridView_SanPham);
 

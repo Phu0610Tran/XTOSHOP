@@ -19,10 +19,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bookshop.Fragment.GioHangFragment;
-import com.example.bookshop.Fragment.SachKhoaHocFragment;
-import com.example.bookshop.Fragment.SachMoiFragment;
-import com.example.bookshop.Fragment.SachNguoiLonFragment;
-import com.example.bookshop.Fragment.SachVanHocFragment;
+import com.example.bookshop.Fragment.CFragment;
+import com.example.bookshop.Fragment.JavaFragment;
+import com.example.bookshop.Fragment.WebFragment;
+import com.example.bookshop.Fragment.AndroidFragment;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.Fragment.UserFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -30,12 +30,17 @@ import com.google.android.material.navigation.NavigationView;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final int FRAGMENT_HOME = 1;
-    private static final int FRAGMENT_SACHVANHOC = 2;
-    private static final int FRAGMENT_SACHKHOAHOC = 3;
-    private static final int FRAGMENT_SACHNGUOILON = 4;
-    private static final int FRAGMENT_SACHMOI = 5;
-    private static final int FRAGMENT_NGUOIDUNG = 6;
-    private static final int FRAGMENT_GIOHANG = 7;
+    private static final int FRAGMENT_ANDROID = 2;
+    private static final int FRAGMENT_CONTACT = 3;
+    private static final int FRAGMENT_FEEDBACK = 4;
+
+    private static final int FRAGMENT_C = 5;
+    private static final int FRAGMENT_WED = 6;
+    private static final int FRAGMENT_JAVA = 7;
+    private static final int FRAGMENT_NEW = 8;
+    private static final int FRAGMENT_NGUOIDUNG = 9;
+    private static final int FRAGMENT_GIOHANG = 10;
+
 
     private int currentFragment = FRAGMENT_HOME;
 
@@ -113,25 +118,41 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 replaceFragment(new TrangChuFragment());
                 currentFragment = FRAGMENT_HOME;
             }
-        }else if (id == R.id.nav_Vanhoc) {
-            if (FRAGMENT_SACHVANHOC != currentFragment) {
-                replaceFragment(new SachVanHocFragment());
-                currentFragment = FRAGMENT_SACHVANHOC;
+        }else if (id == R.id.nav_contact) {
+            if (FRAGMENT_CONTACT != currentFragment) {
+                replaceFragment(new TrangChuFragment());
+                currentFragment = FRAGMENT_HOME;
             }
-        }else if (id == R.id.nav_Khoahoc) {
-            if (FRAGMENT_SACHKHOAHOC != currentFragment) {
-                replaceFragment(new SachKhoaHocFragment());
-                currentFragment = FRAGMENT_SACHKHOAHOC;
+        }else if (id == R.id.nav_Feedback) {
+            if (FRAGMENT_FEEDBACK != currentFragment) {
+                replaceFragment(new TrangChuFragment());
+                currentFragment = FRAGMENT_HOME;
             }
-        }else if (id == R.id.nav_Nguoilon) {
-            if (FRAGMENT_SACHNGUOILON != currentFragment) {
-                replaceFragment(new SachNguoiLonFragment());
-                currentFragment = FRAGMENT_SACHNGUOILON;
+        }else if (id == R.id.nav_Android) {
+            if (FRAGMENT_ANDROID != currentFragment) {
+                replaceFragment(new AndroidFragment());
+                currentFragment = FRAGMENT_ANDROID;
             }
+        }else if (id == R.id.nav_NgonnguC) {
+            if (FRAGMENT_C != currentFragment) {
+                replaceFragment(new CFragment());
+                currentFragment = FRAGMENT_C;
+            }
+        }else if (id == R.id.nav_Web) {
+            if (FRAGMENT_WED != currentFragment) {
+                replaceFragment(new WebFragment());
+                currentFragment = FRAGMENT_WED;
+            }
+        }else if (id == R.id.nav_Java) {
+            if (FRAGMENT_JAVA != currentFragment) {
+                replaceFragment(new WebFragment());
+                currentFragment = FRAGMENT_JAVA;
+            }
+
         }else if (id == R.id.nav_Moi) {
-            if (FRAGMENT_SACHMOI != currentFragment) {
-                replaceFragment(new SachMoiFragment());
-                currentFragment = FRAGMENT_SACHMOI;
+            if (FRAGMENT_NEW != currentFragment) {
+                replaceFragment(new JavaFragment());
+                currentFragment = FRAGMENT_NEW;
             }
         }else if (id == R.id.nav_profile) {
             if (FRAGMENT_NGUOIDUNG != currentFragment) {

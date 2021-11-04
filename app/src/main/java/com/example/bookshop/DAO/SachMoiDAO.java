@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.CreateDatabase;
-import com.example.bookshop.Fragment.SachMoiFragment;
+import com.example.bookshop.Fragment.JavaFragment;
 import com.example.bookshop.R;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class SachMoiDAO extends BaseAdapter {
 
     SQLiteDatabase database;
 
-    private SachMoiFragment context;
+    private JavaFragment context;
     private int layout;
     public static List<SanPhamDTO> sanPhamDTOList;
     int id;
@@ -32,7 +32,7 @@ public class SachMoiDAO extends BaseAdapter {
         database = createDatabase.open();
     }
 
-    public SachMoiDAO(SachMoiFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
+    public SachMoiDAO(JavaFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
         this.context = context;
         this.layout = layout;
         this.sanPhamDTOList = sanPhamDTOList;

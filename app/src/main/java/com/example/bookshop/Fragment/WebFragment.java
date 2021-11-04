@@ -17,7 +17,7 @@ import com.example.bookshop.R;
 import java.util.ArrayList;
 
 
-public class SachNguoiLonFragment extends Fragment {
+public class WebFragment extends Fragment {
 
     private View view;
 
@@ -27,7 +27,7 @@ public class SachNguoiLonFragment extends Fragment {
     SachNguoiLonDAO adapter;
 
 
-    public SachNguoiLonFragment() {
+    public WebFragment() {
         // Required empty public constructor
     }
 
@@ -44,7 +44,7 @@ public class SachNguoiLonFragment extends Fragment {
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
-        adapter = new SachNguoiLonDAO(SachNguoiLonFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
+        adapter = new SachNguoiLonDAO(WebFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
         registerForContextMenu(gridView_SanPham);
 
