@@ -5,18 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
-    android:background="@drawable/background_header">
+    android:background="@drawable/dog">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="109dp"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
-        android:fontFamily="cursive"
+        android:fontFamily="serif"
         android:gravity="bottom"
         android:text="@string/nameshop"
-        android:textColor="@color/black"
-        android:textSize="50dp"
+        android:textColor="#FFFFFF"
+
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -40,7 +41,7 @@
             android:layout_gravity="center"
             android:paddingLeft="@dimen/size10dp"
             android:hint="Tên người dùng"
-            android:fontFamily="casual"
+            android:fontFamily="serif"
             android:textColorHint="@color/black"
             android:textSize="@dimen/size20dp"
             android:textStyle="bold"/>

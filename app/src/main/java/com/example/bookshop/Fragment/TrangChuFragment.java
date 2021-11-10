@@ -26,7 +26,7 @@ public class TrangChuFragment extends Fragment {
 
     private View view;
 
-    private static Database database;
+    public static Database database;
     GridView gridView_SanPham;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
     SanPhamDAO adapter;
@@ -73,13 +73,14 @@ public class TrangChuFragment extends Fragment {
     private void GetData() {
         //get data
         Cursor cursor = database.Getdata("SELECT * FROM SANPHAM");
+        sanPhamDTOArrayList.clear();
         while (cursor.moveToNext())
         {
             sanPhamDTOArrayList.add(new SanPhamDTO(
                     cursor.getInt(0),
                     cursor.getBlob(1),
                     cursor.getString(2),
-                    cursor.getString(3)
+                    cursor.getInt(3)
             ));
         }
         adapter.notifyDataSetChanged();

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Register">
+    android:padding="20dp"
+    tools:context=".Fragment.RegisterFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -15,14 +16,14 @@
             android:id="@+id/edtTaikhoan"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#00000000"
+            android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/username"
             android:inputType="textPersonName"
             android:paddingLeft="@dimen/size20dp"
-            android:layout_gravity="center"
-            />
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -36,13 +37,14 @@
             android:id="@+id/edtMatkhau"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#00000000"
+            android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPersonName"
             android:paddingLeft="@dimen/size20dp"
-            android:layout_gravity="center"/>
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -55,13 +57,14 @@
             android:id="@+id/edtNgaySinh"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#00000000"
+            android:background="#FFFFFF"
             android:ems="10"
             android:hint="Nhập ngày sinh"
             android:inputType="textPersonName"
             android:paddingLeft="@dimen/size20dp"
-            android:layout_gravity="center"/>
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -72,14 +75,15 @@
             android:id="@+id/edtSDT"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#00000000"
+            android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/sdt"
             android:inputType="phone"
+            android:maxLength="10"
             android:paddingLeft="@dimen/size20dp"
-            android:layout_gravity="center"
-            android:maxLength="10"/>
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,13 +96,14 @@
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#00000000"
+            android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:paddingLeft="@dimen/size20dp"
-            android:layout_gravity="center"/>
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -108,9 +113,9 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#16A8EA"
+        android:backgroundTint="#FFEC9E2A"
         android:text="Xác Nhận"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="@dimen/size20dp"
         android:layout_gravity="center"/>
 

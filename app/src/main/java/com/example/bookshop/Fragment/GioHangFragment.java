@@ -1,65 +1,84 @@
 package com.example.bookshop.Fragment;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.bookshop.DAO.GioHangAdapter;
+import com.example.bookshop.DAO.SanPhamDAO;
+import com.example.bookshop.DTO.GioHang;
+import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Data.Database;
+import com.example.bookshop.Products_information_activity;
 import com.example.bookshop.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GioHangFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class GioHangFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private View view;
+    ListView Listview_SanPham;
+    ArrayList<GioHang> sanPhamArrayList;
+    GioHangAdapter adapter;
 
     public GioHangFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GioHangFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GioHangFragment newInstance(String param1, String param2) {
-        GioHangFragment fragment = new GioHangFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gio_hang, container, false);
+        view = inflater.inflate(R.layout.fragment_gio_hang, container, false);
+        TrangChuFragment.database = new Database(getActivity(),"BookShop",null,2);
+//        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
+//                ", Ten VARCHAR(150), MoTa VARCHAR(250), HinhAnh BLOB)");
+
+        Listview_SanPham = (ListView) view.findViewById(R.id.listview_danhsachsp_gohang);
+
+        sanPhamArrayList = new ArrayList<>();
+        adapter = new GioHangAdapter(GioHangFragment.this, R.layout.products_giohang, sanPhamArrayList);
+        Listview_SanPham.setAdapter(adapter);
+//        Listview_SanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(getActivity(), Products_information_activity.class);
+//
+//
+//                intent.putExtra("id",i);
+//                startActivity(intent);
+//
+//            }
+//        });
+        registerForContextMenu(Listview_SanPham);
+
+        GetData();
+        return view;
+    }
+    private void GetData() {
+        //get data
+        Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM GIOHANG");
+        sanPhamArrayList.clear();
+        while (cursor.moveToNext())
+        {
+            sanPhamArrayList.add(new GioHang(
+                    cursor.getInt(0),
+                    cursor.getInt(2),
+                    cursor.getString(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getInt(6)
+            ));
+        }
+        adapter.notifyDataSetChanged();
     }
 }

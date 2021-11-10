@@ -10,15 +10,17 @@
     <ImageButton
         android:id="@+id/ibtnExit"
         android:layout_width="@dimen/size40dp"
-        android:layout_height="@dimen/size40dp"
-        app:srcCompat="?attr/actionModeCloseDrawable"
+        android:layout_height="30dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/quaylai"
         android:background="@null"/>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
         android:layout_gravity="center"
-        android:src="@drawable/background_header" />
+        android:src="@drawable/logo" />
 
 
     <LinearLayout
@@ -41,20 +43,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
-                android:fontFamily="casual"
+
                 android:text="@string/DangNhap"
-                android:textColor="#FF0000"
-                android:textSize="18sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/signup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:fontFamily="casual"
+                android:textStyle="bold"
                 android:text="@string/DangKy"
-                android:textColor="#FF0000"
-                android:textSize="18sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

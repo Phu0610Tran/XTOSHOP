@@ -11,37 +11,37 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
+import com.example.bookshop.DTO.GioHang;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.CreateDatabase;
-import com.example.bookshop.Fragment.AndroidFragment;
+import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
 import java.util.List;
 
-public class SachVanHocDAO extends BaseAdapter {
+public class GioHangAdapter extends BaseAdapter {
 
     SQLiteDatabase database;
 
-    private AndroidFragment context;
+    private Fragment context;
     private int layout;
-    public static List<SanPhamDTO> sanPhamDTOList;
+    public static List<GioHang> sanPhamGioHangList;
     int id;
 
-    public SachVanHocDAO(Context context){
-        CreateDatabase createDatabase = new CreateDatabase(context);
-        database = createDatabase.open();
-    }
 
-    public SachVanHocDAO(AndroidFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
+
+    public GioHangAdapter(Fragment context, int layout, List<GioHang> sanPhamGioHangList) {
         this.context = context;
         this.layout = layout;
-        this.sanPhamDTOList = sanPhamDTOList;
+        this.sanPhamGioHangList = sanPhamGioHangList;
     }
 
 
     @Override
     public int getCount() {
-        return sanPhamDTOList.size();
+        return sanPhamGioHangList.size();
     }
 
     @Override
@@ -55,9 +55,10 @@ public class SachVanHocDAO extends BaseAdapter {
     }
 
     static class ViewHolder{
-        TextView txt_TenSP, txt_GiaSP;
+        TextView txt_TenSP, txt_GiaSP, txt_SLSP;
         ImageView img_HinhAnh;
     }
+
 
     @Override
     public View getView(int i, View view, ViewGroup parent) {
@@ -69,23 +70,25 @@ public class SachVanHocDAO extends BaseAdapter {
             LayoutInflater inflater;
             inflater = (LayoutInflater) context.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
-            holder.txt_TenSP = (TextView) view.findViewById(R.id.product_name);
-            holder.txt_GiaSP = (TextView) view.findViewById(R.id.product_price);
-            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.product_image);
+            holder.txt_TenSP = (TextView) view.findViewById(R.id.textviewTenCustom);
+            holder.txt_GiaSP = (TextView) view.findViewById(R.id.textviewTTCustom);
+            holder.txt_SLSP = (TextView) view.findViewById(R.id.textviewSLCustom) ;
+//            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.imageHinhCustom);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
 
-        SanPhamDTO sanPhamDTO = sanPhamDTOList.get(i);
-        holder.txt_TenSP.setText(sanPhamDTO.getTenSP());
-        holder.txt_GiaSP.setText(sanPhamDTO.getGiaSP());
-        id = sanPhamDTO.getMaSP();
+        GioHang gioHang = sanPhamGioHangList.get(i);
+        holder.txt_TenSP.setText(gioHang.getTENSANPHAM());
+        holder.txt_GiaSP.setText(String.valueOf(gioHang.getTHANHTIEN()) + "VNĐ" );
+        holder.txt_SLSP.setText(String.valueOf(gioHang.getSOLUONG()) );
+        id = gioHang.getIDGIOHANG();
 
-        // chuyen byte[] -> ve bitmap
-        byte[] hinhAnh = sanPhamDTO.getImageSP();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
-        holder.img_HinhAnh.setImageBitmap(bitmap);
+//        // chuyen byte[] -> ve bitmap
+//        byte[] hinhAnh = sanPhamDTO.getImageSP();
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
+//        holder.img_HinhAnh.setImageBitmap(bitmap);
 
         return view;
     }

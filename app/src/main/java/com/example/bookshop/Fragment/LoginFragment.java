@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.DAO.TaiKhoanDAO;
+import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.HomeActivity;
 import com.example.bookshop.R;
 
@@ -73,10 +74,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     private void setBtn_Login(){
         String sTentaikhoan = edt_TK.getText().toString();
         String sMatkhau = edt_MK.getText().toString();
-        boolean kiemtra = taiKhoanDAO.KiemTraDangNhap(sTentaikhoan, sMatkhau);
+        TaiKhoanDTO kiemtra = taiKhoanDAO.KiemTraDangNhap(sTentaikhoan, sMatkhau);
         mUsername = sTentaikhoan;
 
-        if (kiemtra){
+        if (kiemtra != null){
             Toast.makeText(getActivity(), "Đăng nhập thành công !", Toast.LENGTH_LONG).show();
             Intent iTrangchu = new Intent(getActivity(), HomeActivity.class);
             iTrangchu.putExtra("TenTaiKhoan", edt_TK.getText().toString());

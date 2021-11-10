@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/MyLogin"
-    tools:context=".Login">
+    android:padding="20dp"
+    tools:context=".LoginActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -17,13 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="30dp"
-            android:background="#00FFFFFF"
-            android:backgroundTint="#ffff"
+            android:background="#FFFFFF"
+
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="@string/username"
             android:inputType="textPersonName"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,13 +40,14 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="28dp"
-            android:background="#00FFFFFF"
-            android:backgroundTint="#ffff"
+            android:background="#FFFFFF"
+
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,8 +88,8 @@
         android:layout_marginTop="12dp"
         android:text="Đăng Nhập"
         android:textSize="20dp"
-        android:textColor="#000000"
-        android:backgroundTint="#16A8EA"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFEC9E2A"
         android:layout_gravity="center"/>
 
 

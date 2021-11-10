@@ -2,12 +2,27 @@ package com.example.bookshop.DTO;
 
 public class TaiKhoanDTO {
     int MATK;
-    int SDT;
-    int MAQUYEN;
     String TENTK;
     String MATKHAU;
-    String NGAYSINH;
+    int SDT;
     String EMAIL;
+    String NGAYSINH;
+    int MAQUYEN;
+
+
+    public TaiKhoanDTO() {
+
+    }
+
+    public TaiKhoanDTO(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN) {
+        this.MATK = MATK;
+        this.TENTK = TENTK;
+        this.MATKHAU = MATKHAU;
+        this.SDT = SDT;
+        this.EMAIL = EMAIL;
+        this.NGAYSINH = NGAYSINH;
+        this.MAQUYEN = MAQUYEN;
+    }
 
     public String getEMAIL() {
         return EMAIL;

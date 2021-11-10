@@ -11,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.CreateDatabase;
 import com.example.bookshop.Fragment.TrangChuFragment;
@@ -22,7 +24,7 @@ public class SanPhamDAO extends BaseAdapter {
 
     SQLiteDatabase database;
 
-    private TrangChuFragment context;
+    private Fragment context;
     private int layout;
     public static List<SanPhamDTO> sanPhamDTOList;
     int id;
@@ -32,7 +34,7 @@ public class SanPhamDAO extends BaseAdapter {
         database = createDatabase.open();
     }
 
-    public SanPhamDAO(TrangChuFragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
+    public SanPhamDAO(Fragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
         this.context = context;
         this.layout = layout;
         this.sanPhamDTOList = sanPhamDTOList;
@@ -59,6 +61,7 @@ public class SanPhamDAO extends BaseAdapter {
         ImageView img_HinhAnh;
     }
 
+
     @Override
     public View getView(int i, View view, ViewGroup parent) {
 
@@ -78,8 +81,9 @@ public class SanPhamDAO extends BaseAdapter {
         }
 
         SanPhamDTO sanPhamDTO = sanPhamDTOList.get(i);
+        String gia = String.valueOf(sanPhamDTO.getGiaSP());
         holder.txt_TenSP.setText(sanPhamDTO.getTenSP());
-        holder.txt_GiaSP.setText(sanPhamDTO.getGiaSP());
+        holder.txt_GiaSP.setText(gia);
         id = sanPhamDTO.getMaSP();
 
         // chuyen byte[] -> ve bitmap

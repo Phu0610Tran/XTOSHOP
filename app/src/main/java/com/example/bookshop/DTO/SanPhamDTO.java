@@ -5,11 +5,11 @@ public class SanPhamDTO {
     int MaSP;
     byte[] ImageSP;
     String TenSP;
-    String GiaSP;
+    int GiaSP;
     int Sl_SP;
     String MotaSP;
 
-    public SanPhamDTO(int maSP, byte[] imageSP, String tenSP, String giaSP) {
+    public SanPhamDTO(int maSP, byte[] imageSP, String tenSP, int giaSP) {
         MaSP = maSP;
         ImageSP = imageSP;
         TenSP = tenSP;
@@ -40,11 +40,11 @@ public class SanPhamDTO {
         TenSP = tenSP;
     }
 
-    public String getGiaSP() {
+    public int getGiaSP() {
         return GiaSP;
     }
 
-    public void setGiaSP(String giaSP) {
+    public void setGiaSP(int giaSP) {
         GiaSP = giaSP;
     }
 

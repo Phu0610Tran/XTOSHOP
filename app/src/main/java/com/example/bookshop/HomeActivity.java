@@ -18,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.Fragment.GioHangFragment;
 import com.example.bookshop.Fragment.CFragment;
 import com.example.bookshop.Fragment.JavaFragment;
@@ -29,6 +30,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+    public static TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
     private static final int FRAGMENT_HOME = 1;
     private static final int FRAGMENT_ANDROID = 2;
     private static final int FRAGMENT_CONTACT = 3;
