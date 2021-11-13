@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.text.Editable;
 
 import androidx.annotation.Nullable;
@@ -33,17 +34,41 @@ public class Database extends SQLiteOpenHelper {
         return true;
     }
 
-    public void SPGH(int IDTK, int IDSP, String TenSP, int Soluong, int thanhtien){
+    //--------------------------------------------
+    public void INSERT_DOAN(byte[] hinh){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO GIOHANG VALUES(null,?,null,null,null,null,null,null)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+
+
+        statement.bindBlob(1,hinh);
+
+        statement.executeInsert();
+    }
+    //--------------------------------------------
+    public void SPGH(int IDTK,byte[] hinh, int IDSP, String TenSP, int Soluong, int thanhtien){
         if(SPChuaCoTrongGH(IDTK, IDSP)){
             QueryData("INSERT INTO " + CreateDatabase.tbl_GIOHANG +
                     " ( "
                     + CreateDatabase.tbl_GIOHANG_IDTK + " , "
+                    + CreateDatabase.tbl_GIOHANG_HINHANH + " , "
                     + CreateDatabase.tbl_GIOHANG_IDSP + " , "
                     + CreateDatabase.tbl_GIOHANG_TENSANPHAM + " , "
                     + CreateDatabase.tbl_GIOHANG_SOLUONG + " , "
                     + CreateDatabase.tbl_GIOHANG_THANHTIEN
-                    + " ) VALUES ( " + IDTK + " , " + IDSP+" , '" + TenSP + "' , " + Soluong + " , "
+                    + " ) VALUES ( " + IDTK +" , " + null + " , " + IDSP+" , '" + TenSP + "' , " + Soluong + " , "
                     + thanhtien + " ) ");
+            //------------------------------
+            SQLiteDatabase database = getWritableDatabase();
+            String sql = "UPDATE GIOHANG SET HinhAnh = ? WHERE IDTK="+ IDTK + " AND IDSP=" + IDSP ;
+            SQLiteStatement statement = database.compileStatement(sql);
+            statement.clearBindings();
+            statement.bindBlob(1,hinh);
+            statement.executeInsert();
+
+
+
         }
         else {
             QueryData("UPDATE " + CreateDatabase.tbl_GIOHANG + " SET "
@@ -54,6 +79,7 @@ public class Database extends SQLiteOpenHelper {
                     ;
         }
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {

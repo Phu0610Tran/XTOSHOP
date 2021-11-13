@@ -16,9 +16,11 @@ import androidx.fragment.app.Fragment;
 import com.example.bookshop.DAO.TaiKhoanDAO;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.HomeActivity;
+import com.example.bookshop.LoginActivity;
 import com.example.bookshop.R;
 
 public class LoginFragment extends Fragment implements View.OnClickListener{
+
 
     private View mView;
     TextView txt_DangKy, txt_QuenMK;
@@ -75,9 +77,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         String sTentaikhoan = edt_TK.getText().toString();
         String sMatkhau = edt_MK.getText().toString();
         TaiKhoanDTO kiemtra = taiKhoanDAO.KiemTraDangNhap(sTentaikhoan, sMatkhau);
+
         mUsername = sTentaikhoan;
 
         if (kiemtra != null){
+            LoginActivity.taiKhoanDTO = kiemtra;
             Toast.makeText(getActivity(), "Đăng nhập thành công !", Toast.LENGTH_LONG).show();
             Intent iTrangchu = new Intent(getActivity(), HomeActivity.class);
             iTrangchu.putExtra("TenTaiKhoan", edt_TK.getText().toString());

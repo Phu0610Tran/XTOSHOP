@@ -54,7 +54,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String tbl_CHITIETHOADON_TONGTIEN = "TONGTIEN";
 
     public static String tbl_GIOHANG_IDGIOHANG = "IDGIOHANG";
-    public static String tbl_GIOHANG_IDHOADON = "IDHOADON";
+    public static String tbl_GIOHANG_HINHANH = "Hinhanh";
     public static String tbl_GIOHANG_IDSP = "IDSP";
     public static String tbl_GIOHANG_TENSANPHAM = "TENSANPHAM";
     public static String tbl_GIOHANG_IDTK = "IDTK";
@@ -97,7 +97,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 + tbl_CHITIETHOADON_IDSANPHAM + " INTEGER, " + tbl_CHITIETHOADON_TENTAIKHOAN + " TEXT, " + tbl_CHITIETHOADON_TONGTIEN + " INTEGER )";
 
         String GIOHANG = "CREATE TABLE " + tbl_GIOHANG + "(" + tbl_GIOHANG_IDGIOHANG + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + tbl_GIOHANG_IDHOADON + " INTEGER, " + tbl_GIOHANG_IDSP + " INTEGER, " + tbl_GIOHANG_TENSANPHAM + " TEXT, "
+                + tbl_GIOHANG_HINHANH + " INTEGER, " + tbl_GIOHANG_IDSP + " INTEGER, " + tbl_GIOHANG_TENSANPHAM + " TEXT, "
                 + tbl_GIOHANG_IDTK + " INTEGER, " + tbl_GIOHANG_SOLUONG + " INTEGER, " + tbl_GIOHANG_THANHTIEN + " INTEGER, "
                 + tbl_GIOHANG_GHICHU + " TEXT )";
 

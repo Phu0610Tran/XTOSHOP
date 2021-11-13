@@ -12,9 +12,21 @@
         android:orientation="vertical">
 
         <ListView
+            android:layout_marginTop="70dp"
             android:id="@+id/listview_danhsachsp_gohang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/thongbaogiohang"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text=""></TextView>
 
 </FrameLayout>

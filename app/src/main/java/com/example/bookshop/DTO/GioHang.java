@@ -2,14 +2,16 @@ package com.example.bookshop.DTO;
 
 public class GioHang {
     int IDGIOHANG;
+    byte[] ImageSP;
     int IDSP;
     String TENSANPHAM;
     int IDTK;
     int SOLUONG;
     int THANHTIEN;
 
-    public GioHang(int IDGIOHANG, int IDSP, String TENSANPHAM, int IDTK, int SOLUONG, int THANHTIEN) {
+    public GioHang(int IDGIOHANG, byte[] imageSP, int IDSP, String TENSANPHAM, int IDTK, int SOLUONG, int THANHTIEN) {
         this.IDGIOHANG = IDGIOHANG;
+        this.ImageSP = imageSP;
         this.IDSP = IDSP;
         this.TENSANPHAM = TENSANPHAM;
         this.IDTK = IDTK;
@@ -23,6 +25,14 @@ public class GioHang {
 
     public void setIDGIOHANG(int IDGIOHANG) {
         this.IDGIOHANG = IDGIOHANG;
+    }
+
+    public byte[] getImageSP() {
+        return ImageSP;
+    }
+
+    public void setImageSP(byte[] imageSP) {
+        ImageSP = imageSP;
     }
 
     public int getIDSP() {

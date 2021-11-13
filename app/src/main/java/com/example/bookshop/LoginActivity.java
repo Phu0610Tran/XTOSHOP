@@ -9,11 +9,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.Fragment.LoginFragment;
 import com.example.bookshop.Fragment.RegisterFragment;
 
 public class LoginActivity extends AppCompatActivity{
 
+    public static TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
     TextView login_btn, signup_btn;
     ImageButton ibtn_Exit;
 

@@ -11,7 +11,7 @@ public class TaiKhoanDTO {
 
 
     public TaiKhoanDTO() {
-
+        MATK=-1;
     }
 
     public TaiKhoanDTO(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN) {

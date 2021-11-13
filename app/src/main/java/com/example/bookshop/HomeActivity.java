@@ -30,7 +30,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    public static TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+
     private static final int FRAGMENT_HOME = 1;
     private static final int FRAGMENT_ANDROID = 2;
     private static final int FRAGMENT_CONTACT = 3;
@@ -69,8 +69,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         txt_TenTaiKhoan = view.findViewById(R.id.txtTennguoidung);
 
         Intent intent = getIntent();
-        String TenTaiKhoan = intent.getStringExtra("TenTaiKhoan");
-        txt_TenTaiKhoan.setText(TenTaiKhoan);
+//        String TenTaiKhoan = intent.getStringExtra("TenTaiKhoan");
+        txt_TenTaiKhoan.setText(LoginActivity.taiKhoanDTO.getTENTK());
         txt_TenTaiKhoan.setTextColor(Color.WHITE);
     }
 

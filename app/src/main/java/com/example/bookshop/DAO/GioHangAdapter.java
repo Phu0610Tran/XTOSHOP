@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -73,22 +74,27 @@ public class GioHangAdapter extends BaseAdapter {
             holder.txt_TenSP = (TextView) view.findViewById(R.id.textviewTenCustom);
             holder.txt_GiaSP = (TextView) view.findViewById(R.id.textviewTTCustom);
             holder.txt_SLSP = (TextView) view.findViewById(R.id.textviewSLCustom) ;
-//            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.imageHinhCustom);
+            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.imageHinhCustom);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
-
+        holder.img_HinhAnh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context.getActivity(), "sssssssssssss", Toast.LENGTH_SHORT).show();
+            }
+        });
         GioHang gioHang = sanPhamGioHangList.get(i);
         holder.txt_TenSP.setText(gioHang.getTENSANPHAM());
         holder.txt_GiaSP.setText(String.valueOf(gioHang.getTHANHTIEN()) + "VNĐ" );
         holder.txt_SLSP.setText(String.valueOf(gioHang.getSOLUONG()) );
         id = gioHang.getIDGIOHANG();
 
-//        // chuyen byte[] -> ve bitmap
-//        byte[] hinhAnh = sanPhamDTO.getImageSP();
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
-//        holder.img_HinhAnh.setImageBitmap(bitmap);
+        // chuyen byte[] -> ve bitmap
+        byte[] hinhAnh = gioHang.getImageSP();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
+        holder.img_HinhAnh.setImageBitmap(bitmap);
 
         return view;
     }

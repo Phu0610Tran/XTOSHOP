@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 import com.example.bookshop.DAO.SanPhamDAO;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
+
+import java.io.ByteArrayOutputStream;
 
 public class Products_information_activity extends AppCompatActivity {
 
@@ -38,16 +41,25 @@ public class Products_information_activity extends AppCompatActivity {
         btnaddcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) imgHinh.getDrawable();
+                Bitmap bitmap = bitmapDrawable.getBitmap();
+                ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
+                byte[] hinhAnh = byteArray.toByteArray();
+
+
                 int SL = Integer.parseInt(editTextSL.getText().toString());
                 sanPhamDTO = SanPhamDAO.sanPhamDTOList.get(id);
                 TrangChuFragment.database.SPGH(
-                        HomeActivity.taiKhoanDTO.getMATK(),
+                        LoginActivity.taiKhoanDTO.getMATK(),
+                        hinhAnh,
                         sanPhamDTO.getMaSP(),
                         sanPhamDTO.getTenSP(),
                         SL,
                         SL * sanPhamDTO.getGiaSP()
                         );
-                Toast.makeText(getApplicationContext()," Đã thêm vào giỏ hàng" + SL,Toast.LENGTH_LONG).show();
+
+//                Toast.makeText(getApplicationContext()," Đã thêm vào giỏ hàng" + hinhAnh,Toast.LENGTH_LONG).show();
             }
         });
 
@@ -68,8 +80,6 @@ public class Products_information_activity extends AppCompatActivity {
         String ten = sanPhamDTO.getTenSP();
         String mota = sanPhamDTO.getMotaSP();
         String gia = sanPhamDTO.getGiaSP() + " VNĐ";
-
-
         name.setText(ten);
         content.setText(mota);
         price.setText(gia);

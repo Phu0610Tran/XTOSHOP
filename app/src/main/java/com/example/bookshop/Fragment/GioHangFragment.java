@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -17,6 +19,8 @@ import com.example.bookshop.DAO.SanPhamDAO;
 import com.example.bookshop.DTO.GioHang;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
+import com.example.bookshop.HomeActivity;
+import com.example.bookshop.LoginActivity;
 import com.example.bookshop.Products_information_activity;
 import com.example.bookshop.R;
 
@@ -29,6 +33,8 @@ public class GioHangFragment extends Fragment {
     ListView Listview_SanPham;
     ArrayList<GioHang> sanPhamArrayList;
     GioHangAdapter adapter;
+    TextView txtthongbao;
+
 
     public GioHangFragment() {
         // Required empty public constructor
@@ -42,7 +48,7 @@ public class GioHangFragment extends Fragment {
         TrangChuFragment.database = new Database(getActivity(),"BookShop",null,2);
 //        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
 //                ", Ten VARCHAR(150), MoTa VARCHAR(250), HinhAnh BLOB)");
-
+        AnhXa();
         Listview_SanPham = (ListView) view.findViewById(R.id.listview_danhsachsp_gohang);
 
         sanPhamArrayList = new ArrayList<>();
@@ -61,17 +67,26 @@ public class GioHangFragment extends Fragment {
 //        });
         registerForContextMenu(Listview_SanPham);
 
+
+
         GetData();
         return view;
     }
+
+    private void AnhXa() {
+        txtthongbao = (TextView) view.findViewById(R.id.thongbaogiohang);
+    }
+
     private void GetData() {
         //get data
-        Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM GIOHANG");
+
+        Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM GIOHANG WHERE IDTK = " + LoginActivity.taiKhoanDTO.getMATK());
         sanPhamArrayList.clear();
         while (cursor.moveToNext())
         {
             sanPhamArrayList.add(new GioHang(
                     cursor.getInt(0),
+                    cursor.getBlob(1),
                     cursor.getInt(2),
                     cursor.getString(3),
                     cursor.getInt(4),
@@ -80,5 +95,14 @@ public class GioHangFragment extends Fragment {
             ));
         }
         adapter.notifyDataSetChanged();
+
+
+        if (LoginActivity.taiKhoanDTO.getMATK() == -1)
+        {
+            txtthongbao.setText(" Bạn hãy đăng nhập để có thể mua hàng !");
+        }else if (sanPhamArrayList.isEmpty()){
+            txtthongbao.setText(" Bạn chưa mua hàng !");
+        }
+        Toast.makeText(getActivity(), "id cua may la : "+ LoginActivity.taiKhoanDTO.getMATK(), Toast.LENGTH_SHORT).show();
     }
 }
