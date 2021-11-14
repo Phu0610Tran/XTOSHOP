@@ -50,16 +50,25 @@ public class Products_information_activity extends AppCompatActivity {
 
                 int SL = Integer.parseInt(editTextSL.getText().toString());
                 sanPhamDTO = SanPhamDAO.sanPhamDTOList.get(id);
-                TrangChuFragment.database.SPGH(
-                        LoginActivity.taiKhoanDTO.getMATK(),
-                        hinhAnh,
-                        sanPhamDTO.getMaSP(),
-                        sanPhamDTO.getTenSP(),
-                        SL,
-                        SL * sanPhamDTO.getGiaSP()
-                        );
 
-//                Toast.makeText(getApplicationContext()," Đã thêm vào giỏ hàng" + hinhAnh,Toast.LENGTH_LONG).show();
+                if(LoginActivity.taiKhoanDTO.getMATK() == -1)
+                {
+                    Toast.makeText(Products_information_activity.this, "Bạn phải đăng nhập để mua hàng !", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    TrangChuFragment.database.SPGH(
+                            LoginActivity.taiKhoanDTO.getMATK(),
+                            hinhAnh,
+                            sanPhamDTO.getMaSP(),
+                            sanPhamDTO.getTenSP(),
+                            SL,
+                            SL * sanPhamDTO.getGiaSP()
+                    );
+                    Toast.makeText(getApplicationContext()," Đã thêm vào giỏ hàng !",Toast.LENGTH_LONG).show();
+
+                }
+
             }
         });
 

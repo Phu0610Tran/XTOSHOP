@@ -62,7 +62,8 @@ public class CFragment extends Fragment {
                     cursor.getInt(0),
                     cursor.getBlob(1),
                     cursor.getString(2),
-                    cursor.getInt(3)
+                    cursor.getInt(3),
+                    cursor.getInt(4)
             ));
         }
         adapter.notifyDataSetChanged();

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,10 @@ import androidx.fragment.app.Fragment;
 import com.example.bookshop.DTO.GioHang;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.CreateDatabase;
+import com.example.bookshop.Fragment.LoginFragment;
 import com.example.bookshop.Fragment.TrangChuFragment;
+import com.example.bookshop.HomeActivity;
+import com.example.bookshop.LoginActivity;
 import com.example.bookshop.R;
 
 import java.util.List;
@@ -56,8 +60,11 @@ public class GioHangAdapter extends BaseAdapter {
     }
 
     static class ViewHolder{
-        TextView txt_TenSP, txt_GiaSP, txt_SLSP;
+        TextView txt_TenSP, txt_GiaSP, txt_SLSP,txt_count;
         ImageView img_HinhAnh;
+        ImageButton btncong,btntru;
+        int soluong;
+
     }
 
 
@@ -75,17 +82,40 @@ public class GioHangAdapter extends BaseAdapter {
             holder.txt_GiaSP = (TextView) view.findViewById(R.id.textviewTTCustom);
             holder.txt_SLSP = (TextView) view.findViewById(R.id.textviewSLCustom) ;
             holder.img_HinhAnh = (ImageView) view.findViewById(R.id.imageHinhCustom);
+            holder.txt_count = (TextView) view.findViewById(R.id.count_giohang);
+            holder.btncong= (ImageButton) view.findViewById(R.id.cong_giohang);
+            holder.btntru= (ImageButton) view.findViewById(R.id.tru_giohang);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        holder.img_HinhAnh.setOnClickListener(new View.OnClickListener() {
+
+        GioHang gioHang = sanPhamGioHangList.get(i);
+         SanPhamDTO sanPhamDTO = TrangChuFragment.database.getSoLuong(gioHang.getIDSP());
+        holder.btntru.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context.getActivity(), "sssssssssssss", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context.getActivity(), "ssssssssss"+ sanPhamDTO.getSl_SP(), Toast.LENGTH_SHORT).show();
+
             }
         });
-        GioHang gioHang = sanPhamGioHangList.get(i);
+        holder.soluong = gioHang.getSOLUONG();
+        holder.btncong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                holder.soluong = holder.soluong + 1;
+                if(holder.soluong >= sanPhamDTO.getSl_SP())
+                {
+                    Toast.makeText(context.getActivity(), "Sản phẩm chỉ còn lại : " + gioHang.getSOLUONG(), Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(context.getActivity(), "Sản phẩm " +  holder.soluong, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         holder.txt_TenSP.setText(gioHang.getTENSANPHAM());
         holder.txt_GiaSP.setText(String.valueOf(gioHang.getTHANHTIEN()) + "VNĐ" );
         holder.txt_SLSP.setText(String.valueOf(gioHang.getSOLUONG()) );

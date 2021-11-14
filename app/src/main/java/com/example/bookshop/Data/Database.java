@@ -9,6 +9,8 @@ import android.text.Editable;
 
 import androidx.annotation.Nullable;
 
+import com.example.bookshop.DTO.SanPhamDTO;
+
 public class Database extends SQLiteOpenHelper {
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -60,6 +62,7 @@ public class Database extends SQLiteOpenHelper {
                     + " ) VALUES ( " + IDTK +" , " + null + " , " + IDSP+" , '" + TenSP + "' , " + Soluong + " , "
                     + thanhtien + " ) ");
             //------------------------------
+
             SQLiteDatabase database = getWritableDatabase();
             String sql = "UPDATE GIOHANG SET HinhAnh = ? WHERE IDTK="+ IDTK + " AND IDSP=" + IDSP ;
             SQLiteStatement statement = database.compileStatement(sql);
@@ -78,6 +81,30 @@ public class Database extends SQLiteOpenHelper {
                     + CreateDatabase.tbl_GIOHANG_IDSP + " = " + IDSP)
                     ;
         }
+    }
+    public SanPhamDTO getSoLuong(int IDSP){
+        Cursor cursor = Getdata("SELECT * FROM SANPHAM WHERE IDSP = " + IDSP );
+        while (cursor.moveToNext()) {
+            return new SanPhamDTO(
+                    cursor.getInt(0),
+                    cursor.getBlob(1),
+                    cursor.getString(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4)
+            );
+
+        }
+        return null;
+    }
+
+    public void UPDATE_SOLUONG(int IDTK,int IDSP,int Soluong, int thanhtien)
+    {
+        QueryData("UPDATE " + CreateDatabase.tbl_GIOHANG + " SET "
+                + CreateDatabase.tbl_GIOHANG_SOLUONG + " = "+ CreateDatabase.tbl_GIOHANG_SOLUONG + " + " + Soluong + " , "
+                + CreateDatabase.tbl_GIOHANG_THANHTIEN + " = " + CreateDatabase.tbl_GIOHANG_THANHTIEN + " + " + thanhtien
+                + " WHERE " + CreateDatabase.tbl_GIOHANG_IDTK + " = " + IDTK+ " AND "
+                + CreateDatabase.tbl_GIOHANG_IDSP + " = " + IDSP)
+        ;
     }
 
 

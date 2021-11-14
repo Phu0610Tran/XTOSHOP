@@ -84,7 +84,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
             LoginActivity.taiKhoanDTO = kiemtra;
             Toast.makeText(getActivity(), "Đăng nhập thành công !", Toast.LENGTH_LONG).show();
             Intent iTrangchu = new Intent(getActivity(), HomeActivity.class);
-            iTrangchu.putExtra("TenTaiKhoan", edt_TK.getText().toString());
+
             startActivity(iTrangchu);
         } else {
             Toast.makeText(getActivity(), "Đăng nhập thất bại !", Toast.LENGTH_LONG).show();

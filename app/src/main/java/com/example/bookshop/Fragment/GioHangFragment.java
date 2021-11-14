@@ -69,12 +69,15 @@ public class GioHangFragment extends Fragment {
 
 
 
+
         GetData();
         return view;
     }
 
     private void AnhXa() {
+
         txtthongbao = (TextView) view.findViewById(R.id.thongbaogiohang);
+
     }
 
     private void GetData() {

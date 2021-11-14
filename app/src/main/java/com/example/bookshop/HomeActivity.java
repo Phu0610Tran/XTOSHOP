@@ -18,6 +18,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.bookshop.DAO.GioHangAdapter;
+import com.example.bookshop.DTO.GioHang;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.Fragment.GioHangFragment;
 import com.example.bookshop.Fragment.CFragment;
@@ -29,7 +31,6 @@ import com.example.bookshop.Fragment.UserFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
 
     private static final int FRAGMENT_HOME = 1;
     private static final int FRAGMENT_ANDROID = 2;
@@ -52,7 +53,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     // Drawer
 
-    TextView txt_TenTaiKhoan;
+    TextView txt_TenTaiKhoan,txt_count;
+
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -62,6 +64,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         AnhXa();
         HienThiTen();
+
+
     }
 
     private void HienThiTen() {
@@ -69,9 +73,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         txt_TenTaiKhoan = view.findViewById(R.id.txtTennguoidung);
 
         Intent intent = getIntent();
-//        String TenTaiKhoan = intent.getStringExtra("TenTaiKhoan");
         txt_TenTaiKhoan.setText(LoginActivity.taiKhoanDTO.getTENTK());
-        txt_TenTaiKhoan.setTextColor(Color.WHITE);
     }
 
     private void AnhXa() {

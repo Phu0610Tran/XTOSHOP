@@ -42,8 +42,6 @@ public class WebFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_trang_chu, container, false);
 
         database = new Database(getActivity(),"BookShop",null,2);
-//        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
-//                ", Ten VARCHAR(150), MoTa VARCHAR(250), HinhAnh BLOB)");
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
@@ -77,7 +75,8 @@ public class WebFragment extends Fragment {
                     cursor.getInt(0),
                     cursor.getBlob(1),
                     cursor.getString(2),
-                    cursor.getInt(3)
+                    cursor.getInt(3),
+                    cursor.getInt(4)
             ));
         }
         adapter.notifyDataSetChanged();

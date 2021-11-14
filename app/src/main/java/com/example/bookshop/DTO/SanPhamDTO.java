@@ -9,11 +9,12 @@ public class SanPhamDTO {
     int Sl_SP;
     String MotaSP;
 
-    public SanPhamDTO(int maSP, byte[] imageSP, String tenSP, int giaSP) {
+    public SanPhamDTO(int maSP, byte[] imageSP, String tenSP, int giaSP, int sl_SP) {
         MaSP = maSP;
         ImageSP = imageSP;
         TenSP = tenSP;
         GiaSP = giaSP;
+        Sl_SP = sl_SP;
     }
 
     public int getMaSP() {

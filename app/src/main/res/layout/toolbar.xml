@@ -38,13 +38,14 @@
 
                 android:src="@drawable/cart"/>
             <TextView
+                android:id="@+id/count_giohang"
                 android:layout_gravity="right"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="top"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:textColor="#E31F1F"
+                android:textColor="#F3E889"
                 android:text="0"/>
             <ImageButton
                 android:layout_gravity="right"
