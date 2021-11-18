@@ -18,7 +18,9 @@ import com.example.bookshop.Data.CreateDatabase;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class SanPhamDAO extends BaseAdapter {
 
@@ -81,7 +83,7 @@ public class SanPhamDAO extends BaseAdapter {
         }
 
         SanPhamDTO sanPhamDTO = sanPhamDTOList.get(i);
-        String gia = String.valueOf(sanPhamDTO.getGiaSP());
+        String gia = String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(sanPhamDTO.getGiaSP())) + " VNĐ";
         holder.txt_TenSP.setText(sanPhamDTO.getTenSP());
         holder.txt_GiaSP.setText(gia);
         id = sanPhamDTO.getMaSP();

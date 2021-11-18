@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -19,7 +20,9 @@ import com.example.bookshop.LoginActivity;
 import com.example.bookshop.Products_information_activity;
 import com.example.bookshop.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class TrangChuFragment extends Fragment {
@@ -30,6 +33,7 @@ public class TrangChuFragment extends Fragment {
     GridView gridView_SanPham;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
     SanPhamDAO adapter;
+    TextView txt_count_giohang;
 
 
     public TrangChuFragment() {
@@ -66,8 +70,23 @@ public class TrangChuFragment extends Fragment {
         registerForContextMenu(gridView_SanPham);
 
         GetData();
+        txt_count_giohang = (TextView) view.findViewById(R.id.chotan);
+
+
+//        Cursor cursor = TrangChuFragment.database.Getdata("SELECT SUM ( SOLUONG ) FROM GIOHANG WHERE IDTK = "
+//                + LoginActivity.taiKhoanDTO.getMATK());
+//        cursor.moveToNext();
+//        int tong = cursor.getInt(0);
+//        txt_count_giohang.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(tong) + " VNĐ"));
+
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
     }
 
     private void GetData() {

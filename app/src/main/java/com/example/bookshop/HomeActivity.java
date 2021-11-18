@@ -23,7 +23,9 @@ import com.example.bookshop.DTO.GioHang;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.Fragment.GioHangFragment;
 import com.example.bookshop.Fragment.CFragment;
+import com.example.bookshop.Fragment.GopYFragment;
 import com.example.bookshop.Fragment.JavaFragment;
+import com.example.bookshop.Fragment.PythonFragment;
 import com.example.bookshop.Fragment.WebFragment;
 import com.example.bookshop.Fragment.AndroidFragment;
 import com.example.bookshop.Fragment.TrangChuFragment;
@@ -40,7 +42,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private static final int FRAGMENT_C = 5;
     private static final int FRAGMENT_WED = 6;
     private static final int FRAGMENT_JAVA = 7;
-    private static final int FRAGMENT_NEW = 8;
+    private static final int FRAGMENT_PYTHON = 8;
     private static final int FRAGMENT_NGUOIDUNG = 9;
     private static final int FRAGMENT_GIOHANG = 10;
 
@@ -129,7 +131,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         }else if (id == R.id.nav_Feedback) {
             if (FRAGMENT_FEEDBACK != currentFragment) {
-                replaceFragment(new TrangChuFragment());
+                replaceFragment(new GopYFragment());
                 currentFragment = FRAGMENT_HOME;
             }
         }else if (id == R.id.nav_Android) {
@@ -153,10 +155,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 currentFragment = FRAGMENT_JAVA;
             }
 
-        }else if (id == R.id.nav_Moi) {
-            if (FRAGMENT_NEW != currentFragment) {
-                replaceFragment(new JavaFragment());
-                currentFragment = FRAGMENT_NEW;
+        }else if (id == R.id.nav_Python) {
+            if (FRAGMENT_PYTHON != currentFragment) {
+                replaceFragment(new PythonFragment());
+                currentFragment = FRAGMENT_PYTHON;
             }
         }else if (id == R.id.nav_profile) {
             if (FRAGMENT_NGUOIDUNG != currentFragment) {

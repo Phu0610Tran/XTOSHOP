@@ -1,8 +1,6 @@
 package com.example.bookshop.DAO;
 
 import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -12,43 +10,35 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.DTO.GioHang;
-import com.example.bookshop.DTO.SanPhamDTO;
-import com.example.bookshop.Data.CreateDatabase;
-import com.example.bookshop.Fragment.LoginFragment;
-import com.example.bookshop.Fragment.TrangChuFragment;
-import com.example.bookshop.HomeActivity;
-import com.example.bookshop.LoginActivity;
-import com.example.bookshop.Products_information_activity;
+import com.example.bookshop.DTO.HoaDon;
 import com.example.bookshop.R;
 
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class GioHangAdapter extends BaseAdapter {
-
+public class HoaDonAdapter extends BaseAdapter {
     private Fragment context;
     private int layout;
-    public static List<GioHang> sanPhamGioHangList;
+    public static List<HoaDon> ListHoaDon;
     int id;
 
 
 
-    public GioHangAdapter(Fragment context, int layout, List<GioHang> sanPhamGioHangList) {
+    public HoaDonAdapter(Fragment context, int layout, List<HoaDon> ListHoaDon) {
         this.context = context;
         this.layout = layout;
-        this.sanPhamGioHangList = sanPhamGioHangList;
+        this.ListHoaDon = ListHoaDon;
     }
 
 
     @Override
     public int getCount() {
-        return sanPhamGioHangList.size();
+        return ListHoaDon.size();
     }
 
     @Override
@@ -72,10 +62,10 @@ public class GioHangAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup parent) {
 
-        ViewHolder holder;
+        GioHangAdapter.ViewHolder holder;
 
         if (view == null){
-            holder = new ViewHolder();
+            holder = new GioHangAdapter.ViewHolder();
             LayoutInflater inflater;
             inflater = (LayoutInflater) context.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
@@ -85,21 +75,15 @@ public class GioHangAdapter extends BaseAdapter {
             holder.img_HinhAnh = (ImageView) view.findViewById(R.id.imageHinhCustom);
             view.setTag(holder);
         } else {
-            holder = (ViewHolder) view.getTag();
+            holder = (GioHangAdapter.ViewHolder) view.getTag();
         }
 
-        GioHang gioHang = sanPhamGioHangList.get(i);
+        HoaDon hoaDon = ListHoaDon.get(i);
 
-
-        // chuyen byte[] -> ve bitmap
-        byte[] hinhAnh = gioHang.getImageSP();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
-        holder.img_HinhAnh.setImageBitmap(bitmap);
-
-        holder.txt_TenSP.setText(gioHang.getTENSANPHAM());
-        holder.txt_GiaSP.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(gioHang.getTHANHTIEN())) + " VNĐ");
-        holder.txt_SLSP.setText(String.valueOf(gioHang.getSOLUONG()) );
-        id = gioHang.getIDGIOHANG();
+//        holder.txt_TenSP.setText(hoaDon.getIDHOADON());
+//        holder.txt_GiaSP.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(hoaDon.getTONGTIEN())) + " VNĐ");
+//        holder.txt_SLSP.setText(String.valueOf(hoaDon.getDIACHI()) );
+//        id = gioHang.getIDGIOHANG();
 
 
 

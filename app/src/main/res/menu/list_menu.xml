@@ -27,8 +27,8 @@
                     android:id="@+id/nav_Java"
                     android:title="@string/Java" />
                 <item
-                    android:id="@+id/nav_Moi"
-                    android:title="@string/Moi" />
+                    android:id="@+id/nav_Python"
+                    android:title="Python" />
             </group>
         </menu>
     </item>

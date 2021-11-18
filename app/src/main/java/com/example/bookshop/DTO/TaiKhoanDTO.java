@@ -7,6 +7,7 @@ public class TaiKhoanDTO {
     int SDT;
     String EMAIL;
     String NGAYSINH;
+    String DIACHI;
     int MAQUYEN;
 
 
@@ -14,7 +15,7 @@ public class TaiKhoanDTO {
         MATK=-1;
     }
 
-    public TaiKhoanDTO(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN) {
+    public TaiKhoanDTO(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN, String DIACHI) {
         this.MATK = MATK;
         this.TENTK = TENTK;
         this.MATKHAU = MATKHAU;
@@ -22,6 +23,7 @@ public class TaiKhoanDTO {
         this.EMAIL = EMAIL;
         this.NGAYSINH = NGAYSINH;
         this.MAQUYEN = MAQUYEN;
+        this.DIACHI = DIACHI;
     }
 
     public String getEMAIL() {
@@ -72,14 +74,20 @@ public class TaiKhoanDTO {
         this.NGAYSINH = NGAYSINH;
     }
 
-
-
     public int getSDT() {
         return SDT;
     }
 
     public void setSDT(int SDT) {
         this.SDT = SDT;
+    }
+
+    public String getDIACHI() {
+        return DIACHI;
+    }
+
+    public void setDIACHI(String DIACHI) {
+        this.DIACHI = DIACHI;
     }
 
 }

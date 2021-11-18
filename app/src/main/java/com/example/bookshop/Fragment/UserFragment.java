@@ -1,5 +1,6 @@
 package com.example.bookshop.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.bookshop.HoTroKhachHangActivity;
+import com.example.bookshop.InforUserActivity;
 import com.example.bookshop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,7 +21,7 @@ public class UserFragment extends Fragment {
     private BottomNavigationView mbottomNavigationView;
     private View mView;
     Button btn_Login;
-    TextView txt_Tentaikhoan;
+    TextView txt_Tentaikhoan, txt_Baomat, txt_Hotrokhachhang;
 
     public UserFragment() {
         // Required empty public constructor
@@ -43,6 +46,21 @@ public class UserFragment extends Fragment {
 
     private void AnhXa() {
         txt_Tentaikhoan = mView.findViewById(R.id.txtUsername);
+        txt_Hotrokhachhang = mView.findViewById(R.id.txtHoTroKhachHang);
+        txt_Hotrokhachhang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), HoTroKhachHangActivity.class));
+            }
+        });
+
+        txt_Baomat = mView.findViewById(R.id.txtBaomat);
+        txt_Baomat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), InforUserActivity.class));
+            }
+        });
     }
 
 }

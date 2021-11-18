@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 
 import java.io.ByteArrayOutputStream;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Products_information_activity extends AppCompatActivity {
 
@@ -27,6 +30,7 @@ public class Products_information_activity extends AppCompatActivity {
     ImageView imgHinh;
     EditText editTextSL;
     Button btnaddcart;
+    ImageButton btn_quaylai;
     int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,12 @@ public class Products_information_activity extends AppCompatActivity {
         Anhxa();
 
         GetDataSP();
-
+        btn_quaylai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Products_information_activity.this,HomeActivity.class));
+            }
+        });
         btnaddcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +63,9 @@ public class Products_information_activity extends AppCompatActivity {
                 if(LoginActivity.taiKhoanDTO.getMATK() == -1)
                 {
                     Toast.makeText(Products_information_activity.this, "Bạn phải đăng nhập để mua hàng !", Toast.LENGTH_SHORT).show();
+                }else if( SL > sanPhamDTO.getSl_SP()  ){
+                    Toast.makeText(Products_information_activity.this, "Hàng trong kho chỉ còn : " + (sanPhamDTO.getSl_SP()- 1) + " sản phẩm ", Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {
@@ -81,6 +93,7 @@ public class Products_information_activity extends AppCompatActivity {
         imgHinh = (ImageView) findViewById(R.id.product_image_CT);
         btnaddcart= (Button) findViewById(R.id.btnadd_addtocart_CT);
         editTextSL = (EditText) findViewById(R.id.product_SL_CT);
+        btn_quaylai = (ImageButton) findViewById(R.id.btn_quaylai);
     }
 
     private void GetDataSP() {
@@ -88,10 +101,9 @@ public class Products_information_activity extends AppCompatActivity {
         sanPhamDTO = SanPhamDAO.sanPhamDTOList.get(id);
         String ten = sanPhamDTO.getTenSP();
         String mota = sanPhamDTO.getMotaSP();
-        String gia = sanPhamDTO.getGiaSP() + " VNĐ";
         name.setText(ten);
         content.setText(mota);
-        price.setText(gia);
+        price.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(sanPhamDTO.getGiaSP()) + " VNĐ"));
         byte[] hinhAnh = sanPhamDTO.getImageSP();
         Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0,hinhAnh.length);
         imgHinh.setImageBitmap(bitmap);

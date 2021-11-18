@@ -32,34 +32,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/tru_giohang"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/tru"
-                tools:ignore="SpeakableTextPresentCheck" />
-
             <TextView
                 android:id="@+id/textviewSLCustom"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:width="200dp"
+                android:gravity="left"
                 android:inputType="text"
                 android:text="Số"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:textSize="20sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <ImageButton
-                android:id="@+id/cong_giohang"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/cong"
-                tools:ignore="SpeakableTextPresentCheck" />
+
         </LinearLayout>
 
         <TextView
@@ -71,10 +57,7 @@
             android:inputType="text"
             android:text="Thành Tiền"
             android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-
-
+            android:textSize="20sp"
             tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
