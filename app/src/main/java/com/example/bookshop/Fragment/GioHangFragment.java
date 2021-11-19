@@ -45,7 +45,7 @@ public class GioHangFragment extends Fragment {
     ArrayList<GioHang> sanPhamArrayList;
     GioHangAdapter adapter;
     Button btn_tieptuc,btn_thanhtoan;
-    TextView txtthongbao,tongthanhtien,txt_count_giohang;
+    TextView txtthongbao,tongthanhtien;
     int tong;
 
     public GioHangFragment() {
@@ -108,7 +108,6 @@ public class GioHangFragment extends Fragment {
 
         txtthongbao = (TextView) view.findViewById(R.id.thongbaogiohang);
         tongthanhtien = (TextView) view.findViewById(R.id.tongthanhtien);
-        txt_count_giohang = (TextView) view.findViewById(R.id.chotan);
         btn_tieptuc = (Button) view.findViewById(R.id.tieptucmuahang);
         btn_thanhtoan = (Button) view.findViewById(R.id.thanhtoan_giohang);
 

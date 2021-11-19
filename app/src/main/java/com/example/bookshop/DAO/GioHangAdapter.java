@@ -64,7 +64,7 @@ public class GioHangAdapter extends BaseAdapter {
     static class ViewHolder{
         TextView txt_TenSP, txt_GiaSP, txt_SLSP,txt_count;
         ImageView img_HinhAnh;
-        ImageButton btncong,btntru;
+
 
     }
 

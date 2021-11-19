@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOOKSHOP">
         <activity
+            android:name=".ChiTietLichSu"
+            android:exported="true" />
+        <activity
+            android:name=".lichsuActivity"
+            android:exported="true" />
+        <activity
             android:name=".HoTroKhachHangActivity"
             android:exported="true" />
         <activity

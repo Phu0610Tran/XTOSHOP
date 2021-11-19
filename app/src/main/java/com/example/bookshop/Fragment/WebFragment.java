@@ -67,7 +67,7 @@ public class WebFragment extends Fragment {
 
     private void GetData() {
         //get data
-        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 2");
+        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 4");
         sanPhamDTOArrayList.clear();
         while (cursor.moveToNext())
         {

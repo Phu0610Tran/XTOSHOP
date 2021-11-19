@@ -4,26 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.GioHangFragment">
-
-    <ImageButton
-        android:layout_marginTop="60dp"
-        android:layout_gravity="right"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-
-        android:src="@drawable/cart"/>
-    <TextView
-        android:id="@+id/chotan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:text="0"
-        android:textSize="20sp"
-        android:layout_marginLeft="200dp"
-        />
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
 
         android:layout_width="match_parent"

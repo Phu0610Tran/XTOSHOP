@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChiTietLichSu">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/vang_nhat">
+
+        <ImageButton
+            android:id="@+id/ibtnExit_lichsu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            app:srcCompat="?attr/actionModeCloseDrawable"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/size20dp"
+            android:gravity="center|left"
+            android:text="Chi tiết hóa đơn"
+            android:textSize="@dimen/size20dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:layout_marginTop="70dp"
+            android:id="@+id/listview_danhsachchitiethoadon_lichsu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>

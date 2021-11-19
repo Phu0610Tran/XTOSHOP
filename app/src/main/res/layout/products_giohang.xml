@@ -31,7 +31,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:width="200dp"
+                android:gravity="left"
+                android:inputType="text"
+                android:text="Số Lượng : "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:ignore="TouchTargetSizeCheck" />
             <TextView
                 android:id="@+id/textviewSLCustom"
                 android:layout_width="50dp"

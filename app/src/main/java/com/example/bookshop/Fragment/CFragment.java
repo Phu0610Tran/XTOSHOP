@@ -70,7 +70,7 @@ public class CFragment extends Fragment {
 
     private void GetData() {
         //get data
-        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 1");
+        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 2");
         while (cursor.moveToNext())
         {
             sanPhamDTOArrayList.add(new SanPhamDTO(

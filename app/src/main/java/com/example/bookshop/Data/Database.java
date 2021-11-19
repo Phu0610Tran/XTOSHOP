@@ -131,7 +131,7 @@ public class Database extends SQLiteOpenHelper {
             ;
         }
     }
-    public SanPhamDTO getSoLuong(int IDSP){
+    public SanPhamDTO SANPHAM(int IDSP){
         Cursor cursor = Getdata("SELECT * FROM SANPHAM WHERE IDSP = " + IDSP );
         while (cursor.moveToNext()) {
             return new SanPhamDTO(

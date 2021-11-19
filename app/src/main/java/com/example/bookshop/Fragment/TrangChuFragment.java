@@ -70,7 +70,6 @@ public class TrangChuFragment extends Fragment {
         registerForContextMenu(gridView_SanPham);
 
         GetData();
-        txt_count_giohang = (TextView) view.findViewById(R.id.chotan);
 
 
 //        Cursor cursor = TrangChuFragment.database.Getdata("SELECT SUM ( SOLUONG ) FROM GIOHANG WHERE IDTK = "

@@ -2,14 +2,14 @@ package com.example.bookshop.DTO;
 
 public class HoaDon {
     int IDHOADON,TONGTIEN,IDCTHOADON;
-    String GHICHI,DIACHI;
+    String GHICHU,DIACHI;
     int IDTAIKHOAN;
 
-    public HoaDon(int IDHOADON, int TONGTIEN, int IDCTHOADON, String GHICHI, String DIACHI, int IDTAIKHOAN) {
+    public HoaDon(int IDHOADON, int TONGTIEN, int IDCTHOADON, String GHICHU, String DIACHI, int IDTAIKHOAN) {
         this.IDHOADON = IDHOADON;
         this.TONGTIEN = TONGTIEN;
         this.IDCTHOADON = IDCTHOADON;
-        this.GHICHI = GHICHI;
+        this.GHICHU = GHICHU;
         this.DIACHI = DIACHI;
         this.IDTAIKHOAN = IDTAIKHOAN;
     }
@@ -38,12 +38,12 @@ public class HoaDon {
         this.IDCTHOADON = IDCTHOADON;
     }
 
-    public String getGHICHI() {
-        return GHICHI;
+    public String getGHICHU() {
+        return GHICHU;
     }
 
-    public void setGHICHI(String GHICHI) {
-        this.GHICHI = GHICHI;
+    public void setGHICHU(String GHICHU) {
+        this.GHICHU = GHICHU;
     }
 
     public String getDIACHI() {
