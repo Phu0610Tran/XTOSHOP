@@ -8,7 +8,34 @@ public class SanPhamDTO {
     int GiaSP;
     int Sl_SP;
     String MotaSP;
+    int IDDANHMUC;
+    int SPNEW;
 
+    public int getIDDANHMUC() {
+        return IDDANHMUC;
+    }
+
+    public void setIDDANHMUC(int IDDANHMUC) {
+        this.IDDANHMUC = IDDANHMUC;
+    }
+
+    public int getSPNEW() {
+        return SPNEW;
+    }
+
+    public void setSPNEW(int SPNEW) {
+        this.SPNEW = SPNEW;
+    }
+
+    public SanPhamDTO(int maSP, byte[] imageSP, String tenSP, int giaSP, int sl_SP, int IDDANHMUC, int SPNEW) {
+        MaSP = maSP;
+        ImageSP = imageSP;
+        TenSP = tenSP;
+        GiaSP = giaSP;
+        Sl_SP = sl_SP;
+        this.IDDANHMUC = IDDANHMUC;
+        this.SPNEW = SPNEW;
+    }
     public SanPhamDTO(int maSP, byte[] imageSP, String tenSP, int giaSP, int sl_SP) {
         MaSP = maSP;
         ImageSP = imageSP;

@@ -1,11 +1,14 @@
 package com.example.bookshop.Data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.text.Editable;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -37,6 +40,62 @@ public class Database extends SQLiteOpenHelper {
 
         statement.executeInsert();
     }
+
+    public void DELETE_SANPHAM(int IDSP){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE  FROM SANPHAM WHERE IDSP = "+ IDSP  ;
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+
+
+        statement.executeInsert();
+    }
+    public void UPDATE_IMAGE_TK(int IDTAIKHOAN, byte[] hinh){
+        String sql = "UPDATE TAIKHOAN SET HINHANH = ? WHERE IDTAIKHOAN="+ IDTAIKHOAN ;
+        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindBlob(1,hinh);
+        statement.executeInsert();
+    }
+
+    //---------------------------------------------quan ly
+    public void UPDATE_DOAN(String ten,byte[] hinh,int SOLUONG,int  GIA,int IDDANHMUC,int SPNEW, int IDSP ){
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TENSANPHAM", ten);
+        values.put("GIA", GIA);
+        values.put("SOLUONG", SOLUONG);
+        values.put("IDDANHMUC", IDDANHMUC);
+        values.put("SPNEW", SPNEW);
+
+        sqLiteDatabase.update("SANPHAM",values,"IDSP =" + IDSP,null);
+
+
+        String sql = "UPDATE SANPHAM SET HINHANH = ? WHERE IDSP="+ IDSP ;
+        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindBlob(1,hinh);
+        statement.executeInsert();
+    }
+
+    public void INSERT_DOAN(String ten,byte[] hinh,int soluong,int  Gia,int danhmuc,int spmoi ) throws SQLiteException {
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues cv = new  ContentValues();
+        cv.put(CreateDatabase.tbl_SANPHAM_TENSANPHAM,    ten);
+        cv.put(CreateDatabase.tbl_SANPHAM_GIA,   Gia);
+        cv.put(CreateDatabase.tbl_SANPHAM_IDDANHMUC,   danhmuc);
+        cv.put(CreateDatabase.tbl_SANPHAM_SOLUONG,   soluong);
+        cv.put(CreateDatabase.tbl_SANPHAM_IDSP_NEW,   spmoi);
+        cv.put(CreateDatabase.tbl_SANPHAM_HINHANH,   hinh);
+
+        database.insert( CreateDatabase.tbl_SANPHAM, null, cv );
+
+    }
     //-----------------------------thanh toan
 
 
@@ -47,6 +106,7 @@ public class Database extends SQLiteOpenHelper {
         }
         return true;
     }
+
 
     public boolean HoaDonChuaCoTrongHD(){
         Cursor tro = Getdata("SELECT IDCTHOADON FROM CHITIETHOADON " );
@@ -169,6 +229,32 @@ public class Database extends SQLiteOpenHelper {
 //        statement.executeInsert();
     }
 
+    // region Tài Khoản
+    public void CapNhatMatKhau(int IDTAIKHOAN, String MATKHAU){
+        QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_MATKHAU + " = '" + MATKHAU + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = " + IDTAIKHOAN);
+    }
+
+    public boolean isMatKhau(int IDTAIKHOAN, String MATKHAU){
+        Cursor tro = Getdata("SELECT * FROM " + CreateDatabase.tbl_TAIKHOAN + " WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = " + IDTAIKHOAN + " AND " + CreateDatabase.tbl_TAIKHOAN_MATKHAU + " = '" + MATKHAU + "'");
+        while (tro.moveToNext()){
+            return true;
+        }
+        return false;
+    }
+
+    public void CapNhatTaiKhoan(int IDTAIKHOAN, int SDT, String EMAIL, String DIACHI){
+        QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_SDT + " = '" + SDT + "', " + CreateDatabase.tbl_TAIKHOAN_EMAIL + " = '" + EMAIL +
+                "' , " + CreateDatabase.tbl_TAIKHOAN_DIACHI + " = '" + DIACHI + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
+    }
+
+    public boolean isTonTaiTK(String IDTAIKHOAN){
+        Cursor tro = Getdata("SELECT * FROM " + CreateDatabase.tbl_TAIKHOAN + " WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN + "'");
+        while (tro.moveToNext()){
+            return true;
+        }
+        return false;
+    }
+
     public TaiKhoanDTO Load(int IDTK)
     {
         Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE IDTAIKHOAN = " + IDTK );
@@ -181,7 +267,8 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getString(4),
                     cursor.getString(5),
                     cursor.getInt(6),
-                    cursor.getString(7)
+                    cursor.getString(7),
+                    cursor.getBlob(8)
             );
         }
         return null;

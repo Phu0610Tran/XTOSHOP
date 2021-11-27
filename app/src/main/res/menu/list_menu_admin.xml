@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Quản Lý Sản Phẩm">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_ql_sanpham"
+                    android:title="Sản Phẩm" />
+
+                <item
+                    android:id="@+id/nav_ql_themsanpham"
+                    android:title="Thêm sản phẩm" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Tài Khoản">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_ql_taikhoan"
+                    android:title="Quản Lý Tài Khoản" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Thống Kê">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_ql_hoadon"
+                    android:title="Quản Lý Hóa Đơn" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Hỗ Trợ Khách Hàng">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_ql_gopy"
+                    android:title="Quản Lý Góp Ý" />
+            </group>
+        </menu>
+    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/DangNhap" />
+    </group>
+</menu>

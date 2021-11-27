@@ -13,8 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.bookshop.HomeActivity;
-import com.example.bookshop.LoginActivity;
+import com.example.bookshop.ActivityUser.HomeActivity;
+import com.example.bookshop.ActivityUser.LoginActivity;
 import com.example.bookshop.R;
 
 public class GopYFragment extends Fragment {
@@ -41,11 +41,9 @@ public class GopYFragment extends Fragment {
     }
 
     private void GetData() {
-        String tentaikhoan = LoginActivity.taiKhoanDTO.getTENTK();
-        int sdt = LoginActivity.taiKhoanDTO.getSDT();
 
-        edt_Tentaikhoan.setText(tentaikhoan);
-        edt_Sdt.setText(String.valueOf(sdt));
+        edt_Tentaikhoan.setText(LoginActivity.taiKhoanDTO.getTENTK());
+        edt_Sdt.setText(String.valueOf(LoginActivity.taiKhoanDTO.getSDT()));
     }
 
     private void Anhxa() {
@@ -74,12 +72,6 @@ public class GopYFragment extends Fragment {
             }
         });
 
-        ibtn_Exit = view.findViewById(R.id.ibtnExit);
-        ibtn_Exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), HomeActivity.class));
-            }
-        });
+
     }
 }

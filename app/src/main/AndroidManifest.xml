@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.bookshop">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -14,28 +17,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOOKSHOP">
         <activity
-            android:name=".ChiTietLichSu"
+            android:name=".ActivityAdmin.QL_SuaSanPham"
             android:exported="true" />
         <activity
-            android:name=".lichsuActivity"
+            android:name=".ActivityUser.DoiMatKhauActivity"
             android:exported="true" />
         <activity
-            android:name=".HoTroKhachHangActivity"
+            android:name=".ActivityAdmin.QL_ThemSanPham"
+            android:exported="true"
+            tools:ignore="MissingClass" />
+        <activity
+            android:name=".ActivityAdmin.HomeAdmin"
             android:exported="true" />
         <activity
-            android:name=".InforUserActivity"
+            android:name=".ActivityUser.ChiTietLichSu"
             android:exported="true" />
         <activity
-            android:name=".Products_information_activity"
+            android:name=".ActivityUser.lichsuActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".ActivityUser.HoTroKhachHangActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ActivityUser.InforUserActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivityUser.Products_information_activity"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityUser.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityUser.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityUser.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

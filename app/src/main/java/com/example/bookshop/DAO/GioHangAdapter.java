@@ -1,29 +1,18 @@
 package com.example.bookshop.DAO;
 
 import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.DTO.GioHang;
-import com.example.bookshop.DTO.SanPhamDTO;
-import com.example.bookshop.Data.CreateDatabase;
-import com.example.bookshop.Fragment.LoginFragment;
-import com.example.bookshop.Fragment.TrangChuFragment;
-import com.example.bookshop.HomeActivity;
-import com.example.bookshop.LoginActivity;
-import com.example.bookshop.Products_information_activity;
 import com.example.bookshop.R;
 
 import java.text.NumberFormat;

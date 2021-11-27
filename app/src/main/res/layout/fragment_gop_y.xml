@@ -4,36 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/xam"
+    android:background="#9DDCE4"
     android:elevation="5dp"
-    android:padding="2dp"
+    android:gravity="start"
     android:orientation="vertical"
+    android:padding="2dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/vang_nhat">
-
-        <ImageButton
-            android:id="@+id/ibtnExit"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@null"
-            app:srcCompat="?attr/actionModeCloseDrawable"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:contentDescription="TODO" />
+        >
 
         <TextView
+            android:layout_marginTop="80dp"
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/size20dp"
             android:gravity="center|left"
+            android:paddingLeft="@dimen/size20dp"
             android:text="Góp Ý"
-            android:textSize="@dimen/size20dp"
-            android:textStyle="bold"/>
+            android:textSize="25dp"
+            android:textColor="#0B0B0B"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -95,16 +89,16 @@
             <EditText
                 android:id="@+id/edtNoidunggopy"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/size30dp"
                 android:layout_marginTop="@dimen/size20dp"
                 android:layout_marginRight="@dimen/size30dp"
                 android:background="@color/white"
                 android:ems="10"
+                android:maxLines="4"
                 android:hint="Nhập nội dung ..."
-                android:inputType="textPersonName"
-                android:paddingLeft="@dimen/size20dp"
-                android:paddingTop="@dimen/size20dp"
+                android:inputType="textMultiLine"
+
                 tools:ignore="SpeakableTextPresentCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -121,12 +115,12 @@
                 android:id="@+id/btnGopy"
                 android:layout_width="110dp"
                 android:layout_height="60dp"
-                android:layout_weight="1"
                 android:layout_marginLeft="@dimen/size30dp"
                 android:layout_marginTop="@dimen/size20dp"
-                android:backgroundTint="#19CF20"
+                android:layout_weight="1"
+                android:backgroundTint="#FF9800"
                 android:hint="Gửi"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/white"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
@@ -134,12 +128,12 @@
                 android:id="@+id/btnThoatgopy"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
-                android:layout_weight="1"
-                android:layout_marginTop="@dimen/size20dp"
                 android:layout_marginLeft="60dp"
+                android:layout_marginTop="@dimen/size20dp"
+                android:layout_weight="1"
                 android:backgroundTint="#ED2011"
                 android:hint="Thoát"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/white"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 

@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.bookshop.DAO.SanPhamDAO;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
-import com.example.bookshop.Products_information_activity;
+import com.example.bookshop.ActivityUser.Products_information_activity;
 import com.example.bookshop.R;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class CFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_trang_chu, container, false);
+        view = inflater.inflate(R.layout.fragment_c, container, false);
 
         database = new Database(getActivity(),"BookShop",null,2);
 //        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +

@@ -1,4 +1,4 @@
-package com.example.bookshop;
+package com.example.bookshop.ActivityUser;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.bookshop.R;
 
 public class MainActivity extends AppCompatActivity {
 

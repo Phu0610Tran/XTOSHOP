@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/size20dp"
+    tools:context=".Fragment_Admin.QLGopyFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Đây là quản lý góp y nha thèn ml"
+        android:textSize="@dimen/size30dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+</FrameLayout>

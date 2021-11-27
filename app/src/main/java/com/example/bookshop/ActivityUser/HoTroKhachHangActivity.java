@@ -1,4 +1,4 @@
-package com.example.bookshop;
+package com.example.bookshop.ActivityUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.bookshop.R;
 import com.example.bookshop.hotrokhachhang.ChatRVAdapter;
 import com.example.bookshop.hotrokhachhang.ChatsModal;
 import com.example.bookshop.hotrokhachhang.MsgModal;

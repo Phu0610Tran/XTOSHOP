@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,14 +22,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.DAO.GioHangAdapter;
-import com.example.bookshop.DAO.SanPhamDAO;
 import com.example.bookshop.DTO.GioHang;
-import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
-import com.example.bookshop.HomeActivity;
-import com.example.bookshop.LoginActivity;
-import com.example.bookshop.MainActivity;
-import com.example.bookshop.Products_information_activity;
+import com.example.bookshop.ActivityUser.HomeActivity;
+import com.example.bookshop.ActivityUser.LoginActivity;
 import com.example.bookshop.R;
 
 import java.text.NumberFormat;
@@ -47,6 +42,7 @@ public class GioHangFragment extends Fragment {
     Button btn_tieptuc,btn_thanhtoan;
     TextView txtthongbao,tongthanhtien;
     int tong;
+    int idcthd = 0;
 
     public GioHangFragment() {
         // Required empty public constructor
@@ -93,6 +89,7 @@ public class GioHangFragment extends Fragment {
     @Override
     public void onStart() {
         Tongtien();
+
         super.onStart();
     }
 
@@ -153,17 +150,17 @@ public class GioHangFragment extends Fragment {
         builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                int idcthd;
 
                 if(TrangChuFragment.database.HoaDonChuaCoTrongHD()){
                     idcthd = 1;
                 }
                 else {
-                    Cursor cursor = TrangChuFragment.database.Getdata("SELECT IDCTHOADON FROM CHITIETHOADON ORDER BY IDCTHOADON DESC LIMIT 1 OFFSET 1");
+                    Cursor cursor = TrangChuFragment.database.Getdata("SELECT IDCTHOADON FROM CHITIETHOADON ORDER BY IDCTHOADON DESC");
                     cursor.moveToNext();
                     idcthd = cursor.getInt(0) + 1;
                 }
-                Toast.makeText(getActivity(), "ssssss" + idcthd, Toast.LENGTH_SHORT).show();
+
+
 
                 for (int position = 0; position<GioHangAdapter.sanPhamGioHangList.size();position++)
                 {
@@ -201,10 +198,6 @@ public class GioHangFragment extends Fragment {
 
         switch (item.getItemId())
         {
-            case R.id.menu_edit_item:
-
-
-                return true;
             case R.id.menu_delete_item:
 
                 GioHang gioHang = GioHangAdapter.sanPhamGioHangList.get(info.position);

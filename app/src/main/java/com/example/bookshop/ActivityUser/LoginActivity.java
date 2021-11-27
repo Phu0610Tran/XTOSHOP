@@ -1,4 +1,4 @@
-package com.example.bookshop;
+package com.example.bookshop.ActivityUser;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.Fragment.LoginFragment;
 import com.example.bookshop.Fragment.RegisterFragment;
+import com.example.bookshop.R;
 
 public class LoginActivity extends AppCompatActivity{
 

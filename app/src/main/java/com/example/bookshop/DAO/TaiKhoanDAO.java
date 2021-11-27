@@ -23,7 +23,7 @@ public class TaiKhoanDAO {
         contentValues.put(CreateDatabase.tbl_TAIKHOAN_SDT,taiKhoanDTO.getSDT());
         contentValues.put(CreateDatabase.tbl_TAIKHOAN_EMAIL,taiKhoanDTO.getEMAIL());
         contentValues.put(CreateDatabase.tbl_TAIKHOAN_NGAYSINH,taiKhoanDTO.getNGAYSINH());
-
+        contentValues.put(CreateDatabase.tbl_TAIKHOAN_LOAITK,1);
         long kiemtra = database.insert(CreateDatabase.tbl_TAIKHOAN, null, contentValues);
         return kiemtra;
     }
@@ -43,7 +43,8 @@ public class TaiKhoanDAO {
                     cursor.getString(4),
                     cursor.getString(5),
                     cursor.getInt(6),
-                    cursor.getString(7)
+                    cursor.getString(7),
+                    cursor.getBlob(8)
 
             );
         }

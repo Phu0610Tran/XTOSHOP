@@ -1,5 +1,7 @@
 package com.example.bookshop.DTO;
 
+import java.sql.Blob;
+
 public class TaiKhoanDTO {
     int MATK;
     String TENTK;
@@ -9,22 +11,42 @@ public class TaiKhoanDTO {
     String NGAYSINH;
     String DIACHI;
     int MAQUYEN;
+    byte[] HINHANH;
 
-
-    public TaiKhoanDTO() {
-        MATK=-1;
+    public byte[] getHINHANH() {
+        return HINHANH;
     }
 
-    public TaiKhoanDTO(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN, String DIACHI) {
+    public void setHINHANH(byte[] HINHANH) {
+        this.HINHANH = HINHANH;
+    }
+
+    public TaiKhoanDTO(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN, String DIACHI, byte[] HINHANH) {
         this.MATK = MATK;
         this.TENTK = TENTK;
         this.MATKHAU = MATKHAU;
         this.SDT = SDT;
         this.EMAIL = EMAIL;
         this.NGAYSINH = NGAYSINH;
-        this.MAQUYEN = MAQUYEN;
         this.DIACHI = DIACHI;
+        this.MAQUYEN = MAQUYEN;
+        this.HINHANH = HINHANH;
     }
+
+    public TaiKhoanDTO() {
+        MATK=-1;
+    }
+
+//    public TaiKhoanDTO(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN, String DIACHI) {
+//        this.MATK = MATK;
+//        this.TENTK = TENTK;
+//        this.MATKHAU = MATKHAU;
+//        this.SDT = SDT;
+//        this.EMAIL = EMAIL;
+//        this.NGAYSINH = NGAYSINH;
+//        this.MAQUYEN = MAQUYEN;
+//        this.DIACHI = DIACHI;
+//    }
 
     public String getEMAIL() {
         return EMAIL;

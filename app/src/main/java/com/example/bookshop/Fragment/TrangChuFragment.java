@@ -6,31 +6,34 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookshop.DAO.SanPhamDAO;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
-import com.example.bookshop.HomeActivity;
-import com.example.bookshop.LoginActivity;
-import com.example.bookshop.Products_information_activity;
+import com.example.bookshop.ActivityUser.Products_information_activity;
 import com.example.bookshop.R;
+import com.squareup.picasso.Picasso;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 
 public class TrangChuFragment extends Fragment {
 
     private View view;
-
+    ViewFlipper viewFlipper;
     public static Database database;
     GridView gridView_SanPham;
+    RecyclerView recyclerView;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
     SanPhamDAO adapter;
     TextView txt_count_giohang;
@@ -50,9 +53,9 @@ public class TrangChuFragment extends Fragment {
         database = new Database(getActivity(),"BookShop",null,2);
 //        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
 //                ", Ten VARCHAR(150), MoTa VARCHAR(250), HinhAnh BLOB)");
-
+        Anhxa();
+        ActionViewFlipper();
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
-
         sanPhamDTOArrayList = new ArrayList<>();
         adapter = new SanPhamDAO(TrangChuFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
@@ -82,6 +85,33 @@ public class TrangChuFragment extends Fragment {
         return view;
     }
 
+    private void Anhxa() {
+        viewFlipper = (ViewFlipper) view.findViewById(R.id.viewFlippermanhinhchinh);
+    }
+
+    private void ActionViewFlipper() {
+        ArrayList<String> mangquangcao = new ArrayList<>();
+        mangquangcao.add("https://image.freepik.com/free-vector/flat-world-book-day-illustration_23-2148485297.jpg");
+        mangquangcao.add("https://image.freepik.com/free-psd/beautiful-book-cover-mockup_23-2149152257.jpg");
+        mangquangcao.add("https://image.freepik.com/free-psd/high-angle-open-tale-book_23-2149160145.jpg");
+        mangquangcao.add("https://image.freepik.com/free-psd/book-hardcover-mockup-three-views_125540-226.jpg");
+
+        for(int i=0;i<mangquangcao.size();i++)
+        {
+            ImageView imageView = new ImageView(getActivity());
+            Picasso.with(getActivity()).load(mangquangcao.get(i)).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            viewFlipper.addView(imageView);
+
+        }
+        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setAutoStart(true);
+        Animation animation_slide_in = AnimationUtils.loadAnimation(getActivity(),R.anim.slide_in_right);
+        Animation animation_slide_out = AnimationUtils.loadAnimation(getActivity(),R.anim.slide_out_right);
+        viewFlipper.setInAnimation(animation_slide_in);
+        viewFlipper.setOutAnimation(animation_slide_out);
+    }
+
     @Override
     public void onStart() {
 
@@ -90,7 +120,7 @@ public class TrangChuFragment extends Fragment {
 
     private void GetData() {
         //get data
-        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM");
+        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE SPNEW = 1");
         sanPhamDTOArrayList.clear();
         while (cursor.moveToNext())
         {

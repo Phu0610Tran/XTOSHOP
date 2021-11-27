@@ -15,7 +15,7 @@ import android.widget.GridView;
 import com.example.bookshop.DAO.SanPhamDAO;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
-import com.example.bookshop.Products_information_activity;
+import com.example.bookshop.ActivityUser.Products_information_activity;
 import com.example.bookshop.R;
 
 import java.util.ArrayList;
@@ -24,7 +24,6 @@ public class PythonFragment extends Fragment {
 
     private View view;
 
-    private static Database database;
     GridView gridView_SanPham;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
     SanPhamDAO adapter;
@@ -38,7 +37,6 @@ public class PythonFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_python, container, false);
-        database = new Database(getActivity(),"BookShop",null,2);
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
@@ -62,7 +60,7 @@ public class PythonFragment extends Fragment {
     }
     private void GetData() {
         //get data
-        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 1");
+        Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 1");
         sanPhamDTOArrayList.clear();
         while (cursor.moveToNext())
         {

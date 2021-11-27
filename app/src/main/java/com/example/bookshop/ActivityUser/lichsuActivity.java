@@ -1,4 +1,4 @@
-package com.example.bookshop;
+package com.example.bookshop.ActivityUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import com.example.bookshop.DAO.HoaDonAdapter;
 import com.example.bookshop.DTO.HoaDon;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.Fragment.TrangChuFragment;
+import com.example.bookshop.R;
 
 import java.util.ArrayList;
 

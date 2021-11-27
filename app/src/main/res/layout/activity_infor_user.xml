@@ -4,21 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/xam"
+
     android:orientation="vertical"
-    tools:context=".InforUserActivity">
+    android:background="#9DDCE4"
+    tools:context=".ActivityUser.InforUserActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/vang_nhat">
+        android:layout_height="50dp"
+        android:background="#FF9800">
+
 
         <ImageButton
             android:id="@+id/ibtnExit"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/quaylai"
             android:background="@null"
-            app:srcCompat="?attr/actionModeCloseDrawable"
+
             tools:ignore="SpeakableTextPresentCheck"
             android:contentDescription="TODO" />
 
@@ -34,27 +40,53 @@
             android:textStyle="bold"/>
 
     </LinearLayout>
-
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="350dp"
-        android:layout_height="130dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/baseline_person_24" />
-
-    <com.google.android.material.textfield.TextInputLayout
+    <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="230dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+
+            android:id="@+id/img_user_cn"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/user"
+            android:layout_gravity="center"/>
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal | bottom">
+            <ImageButton
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:id="@+id/imageButtonCamera"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/photo"
+                android:layout_marginRight="10dp"
+                />
+            <ImageButton
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:id="@+id/imageButtonFolder"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/open"/>
+        </LinearLayout>
+
+
+    </FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/edtTaikhoan"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/size30dp"
             android:layout_marginTop="@dimen/size10dp"
-            android:layout_marginRight="@dimen/size30dp"
+            android:layout_gravity="center"
             android:background="@color/white"
             android:ems="10"
             android:hint="Tên Tài khoản"
@@ -66,7 +98,8 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content">
 
         <EditText
@@ -74,9 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/size30dp"
             android:layout_marginTop="@dimen/size20dp"
-            android:layout_marginRight="@dimen/size30dp"
             android:background="@color/white"
             android:ems="10"
             android:hint="Số Điện Thoại"
@@ -89,7 +120,8 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content">
 
         <EditText
@@ -97,9 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/size30dp"
             android:layout_marginTop="@dimen/size20dp"
-            android:layout_marginRight="@dimen/size30dp"
             android:background="@color/white"
             android:ems="10"
             android:hint="Email"
@@ -111,17 +141,16 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/edtDiachi"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:gravity="center|left|top"
-            android:layout_marginLeft="@dimen/size30dp"
             android:layout_marginTop="@dimen/size20dp"
-            android:layout_marginRight="@dimen/size30dp"
             android:background="@color/white"
             android:ems="10"
             android:hint="Địa chỉ"
@@ -142,26 +171,26 @@
 
         <Button
             android:id="@+id/btnCapnhat"
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/size30dp"
-            android:backgroundTint="#19CF20"
+            android:backgroundTint="#FF9800"
             android:hint="Cập Nhật"
             android:textColorHint="@color/black"
             android:textSize="16dp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnHuy"
-            android:layout_width="100dp"
+            android:id="@+id/btnDoimatkhau"
+            android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="40dp"
             android:backgroundTint="#ED2011"
-            android:hint="Hủy"
+            android:hint="Đổi Mật Khẩu"
             android:textColorHint="@color/black"
             android:textSize="16dp"
             android:textStyle="bold" />

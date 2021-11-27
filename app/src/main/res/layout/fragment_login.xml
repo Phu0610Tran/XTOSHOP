@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:id="@+id/MyLogin"
     android:padding="20dp"
-    tools:context=".LoginActivity">
+    tools:context=".ActivityUser.LoginActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -19,7 +19,6 @@
             android:layout_height="55dp"
             android:layout_marginTop="30dp"
             android:background="#FFFFFF"
-
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="@string/username"

@@ -1,4 +1,4 @@
-package com.example.bookshop;
+package com.example.bookshop.ActivityUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,15 +6,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookshop.DAO.CTHoaDonAdapter;
-import com.example.bookshop.DAO.HoaDonAdapter;
 import com.example.bookshop.DTO.CTHoaDon;
-import com.example.bookshop.DTO.HoaDon;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.Fragment.TrangChuFragment;
+import com.example.bookshop.R;
 
 import java.util.ArrayList;
 

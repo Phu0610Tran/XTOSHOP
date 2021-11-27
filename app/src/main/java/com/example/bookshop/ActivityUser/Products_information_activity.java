@@ -1,4 +1,4 @@
-package com.example.bookshop;
+package com.example.bookshop.ActivityUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.bookshop.DAO.SanPhamDAO;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
+import com.example.bookshop.R;
 
 import java.io.ByteArrayOutputStream;
 import java.text.NumberFormat;

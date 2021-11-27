@@ -13,10 +13,11 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.bookshop.ActivityAdmin.HomeAdmin;
 import com.example.bookshop.DAO.TaiKhoanDAO;
 import com.example.bookshop.DTO.TaiKhoanDTO;
-import com.example.bookshop.HomeActivity;
-import com.example.bookshop.LoginActivity;
+import com.example.bookshop.ActivityUser.HomeActivity;
+import com.example.bookshop.ActivityUser.LoginActivity;
 import com.example.bookshop.R;
 
 public class LoginFragment extends Fragment implements View.OnClickListener{
@@ -82,10 +83,19 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         if (kiemtra != null){
             LoginActivity.taiKhoanDTO = kiemtra;
-            Toast.makeText(getActivity(), "Đăng nhập thành công !", Toast.LENGTH_LONG).show();
-            Intent iTrangchu = new Intent(getActivity(), HomeActivity.class);
+            Toast.makeText(getActivity(), "Đăng nhập thành công ! " +LoginActivity.taiKhoanDTO.getMAQUYEN() , Toast.LENGTH_LONG).show();
+            if(LoginActivity.taiKhoanDTO.getMAQUYEN()==1)
 
-            startActivity(iTrangchu);
+            {
+                Intent iTrangchu = new Intent(getActivity(), HomeActivity.class);
+
+                startActivity(iTrangchu);
+            }
+            else
+            {
+                startActivity(new Intent(getActivity(), HomeAdmin.class));
+            }
+
         } else {
             Toast.makeText(getActivity(), "Đăng nhập thất bại !", Toast.LENGTH_LONG).show();
         }
