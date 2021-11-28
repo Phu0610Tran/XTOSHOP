@@ -1,7 +1,8 @@
-package com.example.bookshop.ActivityUser;
+package com.example.bookshop.ActivityAdmin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.bookshop.ActivityUser.ChiTietLichSu;
+import com.example.bookshop.ActivityUser.LoginActivity;
+import com.example.bookshop.ActivityUser.lichsuActivity;
 import com.example.bookshop.Adapter.HoaDonAdapter;
 import com.example.bookshop.DTO.HoaDon;
 import com.example.bookshop.Data.Database;
@@ -22,31 +26,31 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class lichsuActivity extends AppCompatActivity {
+public class HoaDonAdmin extends AppCompatActivity {
 
     ListView Listview_Lichsu;
     ArrayList<HoaDon> hoaDonArrayList;
     HoaDonAdapter adapter;
+    LinearLayout layoutdoanhthu;
     TextView txtthongbao,title_qlhd,tongtien_HD,tongchi;
     ImageButton ibtnExit_lichsu;
-    LinearLayout layoutdoanhthu;
     int idcthd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lichsu);
-        TrangChuFragment.database = new Database(lichsuActivity.this,"BookShop",null,2);
+        TrangChuFragment.database = new Database(HoaDonAdmin.this,"BookShop",null,2);
         AnhXa();
         Listview_Lichsu = (ListView) findViewById(R.id.listview_danhsachhoadon_lichsu);
 
         hoaDonArrayList = new ArrayList<>();
-        adapter = new HoaDonAdapter(lichsuActivity.this, R.layout.danhsach_lichsu, hoaDonArrayList);
+        adapter = new HoaDonAdapter(HoaDonAdmin.this, R.layout.danhsach_lichsu, hoaDonArrayList);
         Listview_Lichsu.setAdapter(adapter);
         registerForContextMenu(Listview_Lichsu);
         Listview_Lichsu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(lichsuActivity.this,ChiTietLichSu.class);
+                Intent intent = new Intent(HoaDonAdmin.this, ChiTietLichSu.class);
                 HoaDon hoaDon = HoaDonAdapter.ListHoaDon.get(i);
                 idcthd = hoaDon.getIDCTHOADON();
                 intent.putExtra("idcthd",idcthd);
@@ -57,9 +61,15 @@ public class lichsuActivity extends AppCompatActivity {
 
         GetData();
     }
+
     private void AnhXa() {
         layoutdoanhthu = findViewById(R.id.layoutdoanhthu);
-        layoutdoanhthu.setBackgroundResource(R.color.cam);
+        layoutdoanhthu.setBackgroundResource(R.color.blue_nhat);
+        title_qlhd = findViewById(R.id.title_qlhd);
+        tongtien_HD = findViewById(R.id.tongtien_HD);
+        title_qlhd.setText("Thống kê Doanh Thu");
+        tongchi = findViewById(R.id.tongchi);
+        tongchi.setText(" Tổng Doanh Thu ");
         ibtnExit_lichsu = findViewById(R.id.ibtnExit_lichsu);
         ibtnExit_lichsu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,23 +77,16 @@ public class lichsuActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        txtthongbao = (TextView) findViewById(R.id.thongbaolichsu);
-        title_qlhd = findViewById(R.id.title_qlhd);
-        tongtien_HD = findViewById(R.id.tongtien_HD);
-        title_qlhd.setText(" Lịch sử mua hàng");
-        tongchi = findViewById(R.id.tongchi);
-        tongchi.setText(" Tổng chi :");
     }
 
     private void GetData() {
         //get data
-        Cursor cursor1 = TrangChuFragment.database.Getdata("SELECT SUM ( TONGTIEN ) FROM HOADON WHERE IDTAIKHOAN = "
-                + LoginActivity.taiKhoanDTO.getMATK());
+        Cursor cursor1 = TrangChuFragment.database.Getdata("SELECT SUM ( TONGTIEN ) FROM HOADON ");
         cursor1.moveToNext();
         tongtien_HD.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(cursor1.getInt(0)) + " VNĐ"));
 
 
-        Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM HOADON WHERE IDTAIKHOAN = " + LoginActivity.taiKhoanDTO.getMATK());
+        Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM HOADON ");
         hoaDonArrayList.clear();
         while (cursor.moveToNext())
         {
@@ -97,13 +100,5 @@ public class lichsuActivity extends AppCompatActivity {
             ));
         }
         adapter.notifyDataSetChanged();
-
-
-        if (LoginActivity.taiKhoanDTO.getMATK() == -1)
-        {
-            txtthongbao.setText(" Bạn hãy đăng nhập để có thể xem hóa đơn !");
-        }else if (hoaDonArrayList.isEmpty()){
-            txtthongbao.setText(" Bạn chưa có hóa đơn !");
-        }
     }
 }

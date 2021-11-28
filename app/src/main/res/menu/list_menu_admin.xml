@@ -5,21 +5,24 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:icon="@drawable/book"
                     android:id="@+id/nav_ql_sanpham"
                     android:title="Sản Phẩm" />
 
                 <item
+                    android:icon="@drawable/book"
                     android:id="@+id/nav_ql_themsanpham"
                     android:title="Thêm sản phẩm" />
             </group>
         </menu>
     </item>
-    <item android:title="Tài Khoản">
+    <item android:title="Quản Lý Tài Khoản">
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:icon="@drawable/person"
                     android:id="@+id/nav_ql_taikhoan"
-                    android:title="Quản Lý Tài Khoản" />
+                    android:title="Tài Khoản" />
             </group>
         </menu>
     </item>
@@ -27,8 +30,13 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:icon="@drawable/giohang"
                     android:id="@+id/nav_ql_hoadon"
-                    android:title="Quản Lý Hóa Đơn" />
+                    android:title="Doanh Thu" />
+                <item
+                    android:icon="@drawable/book"
+                    android:id="@+id/nav_ql_soluongsanpham"
+                    android:title="Sản phẩm" />
             </group>
         </menu>
     </item>
@@ -36,6 +44,7 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:icon="@drawable/gopy"
                     android:id="@+id/nav_ql_gopy"
                     android:title="Quản Lý Góp Ý" />
             </group>
@@ -43,7 +52,14 @@
     </item>
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_logout"
+            android:icon="@drawable/login"
+            android:id="@+id/nav_login"
             android:title="@string/DangNhap" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/logout"
+            android:id="@+id/nav_logout"
+            android:title="Đăng Xuất" />
     </group>
 </menu>

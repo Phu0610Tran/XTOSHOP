@@ -11,27 +11,24 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import com.example.bookshop.Fragment.GioHangFragment;
-import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.Fragment_Admin.QLGopyFragment;
-import com.example.bookshop.Fragment_Admin.QLHoadonFragment;
+import com.example.bookshop.Fragment_Admin.DoanhThuFragment;
 import com.example.bookshop.Fragment_Admin.QLSanphamFragment;
 import com.example.bookshop.Fragment_Admin.QLTaikhoanFragment;
 import com.example.bookshop.ActivityUser.LoginActivity;
+import com.example.bookshop.Fragment_Admin.ThongKeSanPham;
 import com.example.bookshop.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeAdmin extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private static final int FRAGMENT_QLSANPHAM = 1;
-    private static final int FRAGMENT_QLHOADON = 2;
+    private static final int FRAGMENT_QLTHONGKESANPHAM = 2;
     private static final int FRAGMENT_QLTAIKHOAN = 3;
     private static final int FRAGMENT_QLGOPY = 4;
 
@@ -128,14 +125,16 @@ public class HomeAdmin extends AppCompatActivity implements NavigationView.OnNav
                 currentFragment = FRAGMENT_QLTAIKHOAN;
             }
         }else if (id == R.id.nav_ql_hoadon) {
-            if (FRAGMENT_QLHOADON != currentFragment) {
-                replaceFragment(new QLHoadonFragment());
-                currentFragment = FRAGMENT_QLHOADON;
-            }
+            startActivity(new Intent(HomeAdmin.this,HoaDonAdmin.class));
         }else if (id == R.id.nav_ql_gopy) {
             if (FRAGMENT_QLGOPY != currentFragment) {
                 replaceFragment(new QLGopyFragment());
                 currentFragment = FRAGMENT_QLGOPY;
+            }
+        }else if (id == R.id.nav_ql_soluongsanpham) {
+            if (FRAGMENT_QLTHONGKESANPHAM != currentFragment) {
+                replaceFragment(new ThongKeSanPham());
+                currentFragment = FRAGMENT_QLTHONGKESANPHAM;
             }
         }else if (id == R.id.nav_ql_themsanpham) {
             startActivity(new Intent(HomeAdmin.this,QL_ThemSanPham.class));
