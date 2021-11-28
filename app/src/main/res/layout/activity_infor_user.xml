@@ -189,7 +189,7 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginLeft="40dp"
-            android:backgroundTint="#ED2011"
+            android:backgroundTint="#8AFF1F0E"
             android:hint="Đổi Mật Khẩu"
             android:textColorHint="@color/black"
             android:textSize="16dp"

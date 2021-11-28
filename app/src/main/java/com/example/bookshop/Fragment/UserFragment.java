@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.bookshop.ActivityUser.HoTroKhachHangActivity;
 import com.example.bookshop.ActivityUser.InforUserActivity;
 import com.example.bookshop.ActivityUser.LoginActivity;
-import com.example.bookshop.DAO.TaiKhoanDAO;
+import com.example.bookshop.Data.TaiKhoanDAO;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.R;
 import com.example.bookshop.ActivityUser.lichsuActivity;

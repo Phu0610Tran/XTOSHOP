@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="56dp"
     android:orientation="vertical"
+    android:background="#9DDCE4"
     tools:context=".Fragment.WebFragment">
 
     <TextView
@@ -15,7 +16,7 @@
         android:textSize="20sp"
         android:text="Sách C/C#"
         android:layout_margin="20dp"
-        android:textColor="#A57F0E"
+        android:textColor="#FFFFFF"
         android:layout_marginLeft="20dp"
         />
     <GridView

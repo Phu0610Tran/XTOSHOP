@@ -5,23 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bookshop.DAO.CTHoaDonAdapter;
+import com.example.bookshop.Adapter.CTHoaDonAdapter;
+import com.example.bookshop.Adapter.HoaDonAdapter;
 import com.example.bookshop.DTO.CTHoaDon;
+import com.example.bookshop.DTO.HoaDon;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ChiTietLichSu extends AppCompatActivity {
 
     ListView Listview_Lichsu;
+    ImageView ibtnExit_lichsu,imageHinhlichsu_HD;
+    TextView textviewTongTien_HD,textviewdc_HD,textviewgc_HD;
     ArrayList<CTHoaDon> cthoaDonArrayList;
     CTHoaDonAdapter adapter;
-    int idcthd;
+    int idcthd,KEYhd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +39,8 @@ public class ChiTietLichSu extends AppCompatActivity {
 
         Intent intent = getIntent();
         idcthd = intent.getIntExtra("idcthd",1123);
-        Toast.makeText(ChiTietLichSu.this, "ssss : " + idcthd, Toast.LENGTH_SHORT).show();
+        KEYhd = intent.getIntExtra("KEYHD",123);
+//        Toast.makeText(ChiTietLichSu.this, "ssss : " + idcthd, Toast.LENGTH_SHORT).show();
 
         AnhXa();
         Listview_Lichsu = (ListView) findViewById(R.id.listview_danhsachchitiethoadon_lichsu);
@@ -43,11 +53,28 @@ public class ChiTietLichSu extends AppCompatActivity {
         GetData();
     }
     private void AnhXa() {
+        textviewgc_HD = findViewById(R.id.textviewgc_HD);
+        textviewdc_HD = findViewById(R.id.textviewdc_HD);
+        textviewTongTien_HD = findViewById(R.id.textviewTongTien_HD);
+        imageHinhlichsu_HD = findViewById(R.id.imageHinhlichsu_HD);
+        ibtnExit_lichsu = findViewById(R.id.ibtnExit_lichsu);
+        ibtnExit_lichsu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     }
 
     private void GetData() {
         //get data
+        HoaDon hoaDon = HoaDonAdapter.ListHoaDon.get(KEYhd);
+        textviewgc_HD.setText("Ghi chú : " + hoaDon.getGHICHU());
+        textviewdc_HD.setText("Địa chỉ : " + hoaDon.getDIACHI());
+        textviewTongTien_HD.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(hoaDon.getTONGTIEN())) + " VNĐ");
+
+
 
         Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM CHITIETHOADON WHERE IDCTHOADON = " + idcthd);
         cthoaDonArrayList.clear();

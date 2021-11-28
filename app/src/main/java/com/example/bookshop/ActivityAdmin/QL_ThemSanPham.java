@@ -34,7 +34,7 @@ public class QL_ThemSanPham extends AppCompatActivity {
     Button btnAdd,btnCancel;
     EditText editTen, edtDanhMuc,edtSoLuong, edt_GiaSP,edtSPmoi;
     ImageButton ibtnCamera,ibtnFolder;
-    ImageView imgHinh;
+    ImageView imgHinh,quaylai_QLSP;
     final int REQUEST_CODE_CAMERA=123;
     final int REQUEST_CODE_FOLDER=456;
 
@@ -90,7 +90,12 @@ public class QL_ThemSanPham extends AppCompatActivity {
                 );
             }
         });
-
+        quaylai_QLSP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(QL_ThemSanPham.this, HomeAdmin.class));
+            }
+        });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,13 +156,13 @@ public class QL_ThemSanPham extends AppCompatActivity {
 
     private void Anhxa() {
         btnAdd = (Button) findViewById(R.id.buttonAdd);
-        btnCancel = (Button) findViewById(R.id.buttonHuy);
+        btnCancel = (Button) findViewById(R.id.buttonHuy_QlSP);
         editTen =  (EditText) findViewById(R.id.edt_TenSP_QLSP);
         edtDanhMuc = (EditText) findViewById(R.id.edt_IDDanhMuc_QLSP);
         edtSoLuong = (EditText) findViewById(R.id.edt_SLSP_QLSP);
         edt_GiaSP = (EditText) findViewById(R.id.edt_GiaSP_QLSP);
         edtSPmoi = (EditText) findViewById(R.id.edt_SPmoi_QLSP);
-
+        quaylai_QLSP = findViewById(R.id.quaylai_QLSP);
         ibtnCamera = (ImageButton) findViewById(R.id.imageButtonCamera);
         ibtnFolder = (ImageButton) findViewById(R.id.imageButtonFolder);
         imgHinh = (ImageView) findViewById(R.id.imageViewHinh_QLSP);

@@ -1,4 +1,4 @@
-package com.example.bookshop.DAO;
+package com.example.bookshop.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -72,8 +72,8 @@ public class HoaDonAdapter extends BaseAdapter {
 
 
         holder.txtTongTien.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(hoaDon.getTONGTIEN())) + " VNĐ");
-        holder.txtdiachi.setText(hoaDon.getDIACHI());
-        holder.txtghichu.setText(hoaDon.getGHICHU());
+        holder.txtdiachi.setText("Địa chỉ : " +  hoaDon.getDIACHI());
+        holder.txtghichu.setText("Ghi chú : " + hoaDon.getGHICHU());
         id = hoaDon.getIDHOADON();
         idcthd = hoaDon.getIDCTHOADON();
 

@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.ActivityAdmin.HomeAdmin;
-import com.example.bookshop.DAO.TaiKhoanDAO;
+import com.example.bookshop.Data.TaiKhoanDAO;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.ActivityUser.HomeActivity;
 import com.example.bookshop.ActivityUser.LoginActivity;
@@ -83,7 +83,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         if (kiemtra != null){
             LoginActivity.taiKhoanDTO = kiemtra;
-            Toast.makeText(getActivity(), "Đăng nhập thành công ! " +LoginActivity.taiKhoanDTO.getMAQUYEN() , Toast.LENGTH_LONG).show();
+//            Toast.makeText(getActivity(), "Đăng nhập thành công ! " +LoginActivity.taiKhoanDTO.getMAQUYEN() , Toast.LENGTH_LONG).show();
             if(LoginActivity.taiKhoanDTO.getMAQUYEN()==1)
 
             {

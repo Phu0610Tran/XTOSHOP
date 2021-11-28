@@ -10,7 +10,7 @@
         android:id="@+id/imageHinhCustom"
         android:layout_width="170dp"
         android:layout_height="150dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/bill"
         />
 
     <LinearLayout

@@ -2,31 +2,41 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:icon="@drawable/home"
             android:id="@+id/nav_home"
-            android:title="@string/home" />
+            android:title="Trang Chủ" />
         <item
+            android:icon="@drawable/contact"
             android:id="@+id/nav_contact"
             android:title="Liên Hệ" />
         <item
+            android:icon="@drawable/gopy"
             android:id="@+id/nav_Feedback"
             android:title="Góp Ý" />
     </group>
-    <item android:title="Thể Loại">
+    <item android:title="Thể Loại"
+        >
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:icon="@drawable/book"
                     android:id="@+id/nav_Android"
                     android:title="@string/Android" />
+
                 <item
+                    android:icon="@drawable/book"
                     android:id="@+id/nav_NgonnguC"
                     android:title="@string/NgonnguC" />
                 <item
+                    android:icon="@drawable/book"
                     android:id="@+id/nav_Web"
                     android:title="@string/HTML" />
                 <item
+                    android:icon="@drawable/book"
                     android:id="@+id/nav_Java"
                     android:title="@string/Java" />
                 <item
+                    android:icon="@drawable/book"
                     android:id="@+id/nav_Python"
                     android:title="Python" />
             </group>
@@ -37,15 +47,20 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+
                     android:id="@+id/nav_profile"
+                    android:icon="@drawable/person"
                     android:title="@string/profile" />
                 <item
+                    android:icon="@drawable/giohang"
                     android:id="@+id/nav_cart"
                     android:title="@string/my_cart" />
                 <item
+                    android:icon="@drawable/login"
                     android:id="@+id/nav_login"
                     android:title="@string/DangNhap" />
                 <item
+                    android:icon="@drawable/logout"
                     android:id="@+id/nav_logout"
                     android:title="Đăng Xuất" />
             </group>

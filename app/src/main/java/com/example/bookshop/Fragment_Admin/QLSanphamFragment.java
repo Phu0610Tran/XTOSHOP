@@ -18,14 +18,8 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.bookshop.ActivityAdmin.QL_SuaSanPham;
-import com.example.bookshop.ActivityUser.Products_information_activity;
-import com.example.bookshop.DAO.GioHangAdapter;
-import com.example.bookshop.DAO.SanPhamAdminAdapter;
-import com.example.bookshop.DAO.SanPhamDAO;
-import com.example.bookshop.DTO.GioHang;
+import com.example.bookshop.Adapter.SanPhamAdminAdapter;
 import com.example.bookshop.DTO.SanPhamDTO;
-import com.example.bookshop.Data.Database;
-import com.example.bookshop.Fragment.PythonFragment;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
@@ -76,7 +70,6 @@ public class QLSanphamFragment extends Fragment {
         GetData();
         super.onStart();
     }
-
     private void GetData() {
         Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM SANPHAM ");
         sanPhamDTOArrayList.clear();

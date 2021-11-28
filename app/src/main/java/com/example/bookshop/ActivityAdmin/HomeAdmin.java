@@ -11,12 +11,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.example.bookshop.Fragment.GioHangFragment;
+import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.Fragment_Admin.QLGopyFragment;
 import com.example.bookshop.Fragment_Admin.QLHoadonFragment;
 import com.example.bookshop.Fragment_Admin.QLSanphamFragment;
@@ -39,7 +43,7 @@ public class HomeAdmin extends AppCompatActivity implements NavigationView.OnNav
     private Toolbar toolbar;
     // Drawer
 
-    TextView txt_TenTaiKhoan;
+    TextView txt_TenTaiKhoan,count_giohang;
 
 
     @Override
@@ -49,7 +53,17 @@ public class HomeAdmin extends AppCompatActivity implements NavigationView.OnNav
 
         AnhXa();
         HienThiTen();
+
+
     }
+
+    @Override
+    protected void onStart() {
+
+        super.onStart();
+    }
+
+
 
     private void HienThiTen() {
         View view = navigationView.inflateHeaderView(R.layout.header);
@@ -60,6 +74,7 @@ public class HomeAdmin extends AppCompatActivity implements NavigationView.OnNav
     }
 
     private void AnhXa() {
+        count_giohang = findViewById(R.id.count_giohang);
         drawerLayout = findViewById(R.id.drawer_layoutadmin);
         navigationView = findViewById(R.id.home_nav_viewadmin);
         toolbar = findViewById(R.id.toolbar);

@@ -12,9 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.example.bookshop.DAO.SanPhamDAO;
+import com.example.bookshop.Adapter.SanPhamAdapter;
 import com.example.bookshop.DTO.SanPhamDTO;
-import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.Products_information_activity;
 import com.example.bookshop.R;
 
@@ -26,7 +25,7 @@ public class PythonFragment extends Fragment {
 
     GridView gridView_SanPham;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
-    SanPhamDAO adapter;
+    SanPhamAdapter adapter;
 
     public PythonFragment() {
         // Required empty public constructor
@@ -40,7 +39,7 @@ public class PythonFragment extends Fragment {
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
-        adapter = new SanPhamDAO(PythonFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
+        adapter = new SanPhamAdapter(PythonFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
         gridView_SanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

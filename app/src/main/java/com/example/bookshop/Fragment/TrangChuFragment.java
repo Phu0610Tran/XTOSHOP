@@ -11,13 +11,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookshop.DAO.SanPhamDAO;
+import com.example.bookshop.Adapter.SanPhamAdapter;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.Products_information_activity;
@@ -35,8 +34,8 @@ public class TrangChuFragment extends Fragment {
     GridView gridView_SanPham;
     RecyclerView recyclerView;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
-    SanPhamDAO adapter;
-    TextView txt_count_giohang;
+    SanPhamAdapter adapter;
+
 
 
     public TrangChuFragment() {
@@ -57,7 +56,7 @@ public class TrangChuFragment extends Fragment {
         ActionViewFlipper();
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
-        adapter = new SanPhamDAO(TrangChuFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
+        adapter = new SanPhamAdapter(TrangChuFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
         gridView_SanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

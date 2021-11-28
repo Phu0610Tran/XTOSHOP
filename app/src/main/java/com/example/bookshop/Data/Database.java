@@ -96,6 +96,43 @@ public class Database extends SQLiteOpenHelper {
         database.insert( CreateDatabase.tbl_SANPHAM, null, cv );
 
     }
+
+
+    //-----------------------------------------Quanlytaikhoan
+    public void UPDATE_TAIKHOAN(int IDTAIKHOAN,String TENTAIKHOAN, String MATKHAU, int SDT,String EMAIL, String NGAYSINH,
+                                int LOAITK, String DIACHI, byte[] HINH){
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("TENTAIKHOAN", TENTAIKHOAN);
+        values.put("MATKHAU", MATKHAU);
+        values.put("SDT", SDT);
+        values.put("EMAIL", EMAIL);
+        values.put("NGAYSINH", NGAYSINH);
+        values.put("LOAITK", LOAITK);
+        values.put("DIACHI", DIACHI);
+
+        sqLiteDatabase.update("TAIKHOAN",values,"IDTAIKHOAN =" + IDTAIKHOAN,null);
+
+
+        String sql = "UPDATE TAIKHOAN SET HINHANH = ? WHERE IDTAIKHOAN="+ IDTAIKHOAN ;
+        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+
+        statement.bindBlob(1,HINH);
+        statement.executeInsert();
+    }
+
+    public void DELETE_TAIKHOAN(int IDTAIKHOAN){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE  FROM TAIKHOAN WHERE IDTAIKHOAN = "+ IDTAIKHOAN  ;
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+
+
+        statement.executeInsert();
+    }
     //-----------------------------thanh toan
 
 

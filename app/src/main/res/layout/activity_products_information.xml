@@ -57,7 +57,7 @@
                 android:id="@+id/product_price_CT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/black"
                 android:gravity="center"
                 android:text="Product Price"
 
@@ -68,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:text="Product Contents"
                 android:textSize="14sp" />
             <LinearLayout
@@ -76,6 +77,7 @@
                 android:orientation="horizontal"
                 android:gravity="center">
                 <TextView
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -86,6 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="number"
+                    android:textColor="@color/black"
                     android:text="1"/>
             </LinearLayout>
 

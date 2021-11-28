@@ -1,4 +1,4 @@
-package com.example.bookshop.DAO;
+package com.example.bookshop.Adapter;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,7 +21,8 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class SanPhamAdminAdapter extends BaseAdapter {
+public class SanPhamAdapter extends BaseAdapter {
+
     SQLiteDatabase database;
 
     private Fragment context;
@@ -29,12 +30,12 @@ public class SanPhamAdminAdapter extends BaseAdapter {
     public static List<SanPhamDTO> sanPhamDTOList;
     int id;
 
-    public SanPhamAdminAdapter(Context context){
+    public SanPhamAdapter(Context context){
         CreateDatabase createDatabase = new CreateDatabase(context);
         database = createDatabase.open();
     }
 
-    public SanPhamAdminAdapter(Fragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
+    public SanPhamAdapter(Fragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
         this.context = context;
         this.layout = layout;
         this.sanPhamDTOList = sanPhamDTOList;
@@ -57,7 +58,7 @@ public class SanPhamAdminAdapter extends BaseAdapter {
     }
 
     static class ViewHolder{
-        TextView txt_TenSP, txt_GiaSP,txt_SoLuong,txt_DanhMuc,txt_SPnew;
+        TextView txt_TenSP, txt_GiaSP;
         ImageView img_HinhAnh;
     }
 
@@ -65,31 +66,25 @@ public class SanPhamAdminAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup parent) {
 
-        SanPhamAdminAdapter.ViewHolder holder;
+        ViewHolder holder;
 
         if (view == null){
-            holder = new SanPhamAdminAdapter.ViewHolder();
+            holder = new ViewHolder();
             LayoutInflater inflater;
             inflater = (LayoutInflater) context.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
-            holder.txt_TenSP = (TextView) view.findViewById(R.id.product_ten_QLSP);
-            holder.txt_GiaSP = (TextView) view.findViewById(R.id.product_Gia_QLSP);
-            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.product_image_QLSP);
-            holder.txt_SoLuong = (TextView) view.findViewById(R.id.product_SL_QLSP);
-            holder.txt_DanhMuc = (TextView) view.findViewById(R.id.product_DANHMUC_QLSP);
-            holder.txt_SPnew = (TextView) view.findViewById(R.id.product_TRANGTHAI_QLSP);
+            holder.txt_TenSP = (TextView) view.findViewById(R.id.product_name);
+            holder.txt_GiaSP = (TextView) view.findViewById(R.id.product_price);
+            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.product_image);
             view.setTag(holder);
         } else {
-            holder = (SanPhamAdminAdapter.ViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
 
         SanPhamDTO sanPhamDTO = sanPhamDTOList.get(i);
         String gia = String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(sanPhamDTO.getGiaSP())) + " VNĐ";
         holder.txt_TenSP.setText(sanPhamDTO.getTenSP());
-        holder.txt_GiaSP.setText("Giá : "+ gia);
-        holder.txt_SoLuong.setText("Số Lượng : " + String.valueOf(sanPhamDTO.getSl_SP()));
-        holder.txt_DanhMuc.setText("Danh Mục : " +String.valueOf(sanPhamDTO.getIDDANHMUC()));
-        holder.txt_SPnew.setText("Trạng Thái : " +String.valueOf(sanPhamDTO.getSPNEW()));
+        holder.txt_GiaSP.setText(gia);
         id = sanPhamDTO.getMaSP();
 
         // chuyen byte[] -> ve bitmap
@@ -101,4 +96,3 @@ public class SanPhamAdminAdapter extends BaseAdapter {
     }
 
 }
-

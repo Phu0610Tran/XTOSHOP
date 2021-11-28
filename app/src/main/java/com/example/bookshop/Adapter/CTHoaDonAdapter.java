@@ -1,4 +1,4 @@
-package com.example.bookshop.DAO;
+package com.example.bookshop.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,15 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
-
 import com.example.bookshop.DTO.CTHoaDon;
-import com.example.bookshop.DTO.GioHang;
-import com.example.bookshop.DTO.HoaDon;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
@@ -80,8 +75,8 @@ public class CTHoaDonAdapter extends BaseAdapter {
         CTHoaDon cthoaDon = ListCTHoaDon.get(i);
 
         holder.txtTenSanPham.setText(cthoaDon.getTENSANPHAM());
-        holder.txtsoluong.setText(String.valueOf(cthoaDon.getSOLUONG()));
-        holder.txtthanhtien.setText(String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(cthoaDon.getTHANHTIEN())) + " VNĐ");
+        holder.txtsoluong.setText("Số lượng : " + String.valueOf(cthoaDon.getSOLUONG()));
+        holder.txtthanhtien.setText("Thành tiền : " + String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(cthoaDon.getTHANHTIEN())) + " VNĐ");
         id = cthoaDon.getIDCTHOADON();
 
         SanPhamDTO sanPhamDTO = TrangChuFragment.database.SANPHAM(cthoaDon.getIDSANPHAM());

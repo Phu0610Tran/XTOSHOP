@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="56dp"
-    android:background="#D3A561"
+    android:background="#9DDCE4"
     android:orientation="vertical"
     tools:context=".Fragment.WebFragment">
 

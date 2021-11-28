@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/size20dp"
+    android:layout_marginTop="56dp"
+    android:orientation="vertical"
+    android:background="#9DDCE4"
     tools:context=".Fragment_Admin.QLTaikhoanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Quản lý tài khoản"
+        android:layout_margin="20dp"
+        android:textColor="#F8F8F8"
+        android:layout_marginLeft="20dp"
+        />
+    <GridView
+        android:background="@color/white"
+        android:id="@+id/gridviewQLTaiKhoan"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Đây là quản lý TÀI KHOẢN nha thèn ml"
-        android:textSize="@dimen/size30dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:numColumns="1"/>
 
-</FrameLayout>
+</LinearLayout>

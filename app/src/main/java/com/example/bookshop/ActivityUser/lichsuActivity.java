@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.bookshop.DAO.HoaDonAdapter;
+import com.example.bookshop.Adapter.HoaDonAdapter;
 import com.example.bookshop.DTO.HoaDon;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.Fragment.TrangChuFragment;
@@ -44,6 +44,7 @@ public class lichsuActivity extends AppCompatActivity {
                 HoaDon hoaDon = HoaDonAdapter.ListHoaDon.get(i);
                 idcthd = hoaDon.getIDCTHOADON();
                 intent.putExtra("idcthd",idcthd);
+                intent.putExtra("KEYHD", i);
                 startActivity(intent);
             }
         });

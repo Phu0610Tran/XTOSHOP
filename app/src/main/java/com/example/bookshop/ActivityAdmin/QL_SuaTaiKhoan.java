@@ -21,8 +21,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.bookshop.ActivityUser.HomeActivity;
 import com.example.bookshop.Adapter.SanPhamAdminAdapter;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Adapter.TaiKhoanAdminAdapter;
+import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
@@ -30,58 +32,63 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class QL_SuaSanPham extends AppCompatActivity {
-
-    Button btnAdd,btnCancel;
-    EditText editTen, edtDanhMuc,edtSoLuong, edt_GiaSP,edtSPmoi;
-    ImageButton ibtnCamera,ibtnFolder;
-    ImageView imgHinh,quaylai_QLSP;
+public class QL_SuaTaiKhoan extends AppCompatActivity {
+    EditText edt_TenTaiKhoan_QLTK,edt_MatKhau_QLTK,edt_SDT_QLTK,edt_Email_QLTK,edt_NgaySinh_QLTK,
+            edt_LoaiTK_QLTK,edt_DiaChi_QLTK;
+    ImageView imageViewHinh_QLTK,quaylai_qltk;
+    Button buttonAdd_QLTK,buttonHuy_QLTK;
+    ImageButton imageButtonCamera_QLTK,imageButtonFolder_QLTK;
+    TaiKhoanDTO taiKhoanDTO;
     final int REQUEST_CODE_CAMERA=123;
     final int REQUEST_CODE_FOLDER=456;
-    SanPhamDTO sanPhamDTO;
-    int id,MASP;
-
+    int id,MATK;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ql_them_san_pham);
+        setContentView(R.layout.activity_ql_them_tai_khoan);
         Intent intent = getIntent();
         id = intent.getIntExtra("id",1123);
-
         Anhxa();
         Getdata();
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        quaylai_qltk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        buttonAdd_QLTK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // chuyen data image view -> mang byte[]
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) imgHinh.getDrawable();
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) imageViewHinh_QLTK.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
                 ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
                 byte[] hinhAnh = byteArray.toByteArray();
 
-                TrangChuFragment.database.UPDATE_DOAN(
-                        editTen.getText().toString().trim(),
-                        hinhAnh,
-                        Integer.parseInt(edtSoLuong.getText().toString().trim()),
-                        Integer.parseInt(edt_GiaSP.getText().toString().trim()),
-                        Integer.parseInt(edtDanhMuc.getText().toString().trim()),
-                        Integer.parseInt(edtSPmoi.getText().toString().trim())
-                        ,MASP
-
+                TrangChuFragment.database.UPDATE_TAIKHOAN(
+                        MATK,
+                        edt_TenTaiKhoan_QLTK.getText().toString().trim(),
+                        edt_MatKhau_QLTK.getText().toString().trim(),
+                        Integer.parseInt(edt_SDT_QLTK.getText().toString().trim()) ,
+                        edt_Email_QLTK.getText().toString().trim(),
+                        edt_NgaySinh_QLTK.getText().toString().trim(),
+                        Integer.parseInt(edt_LoaiTK_QLTK.getText().toString().trim()),
+                        edt_DiaChi_QLTK.getText().toString().trim(),
+                        hinhAnh
                 );
 
-                Toast.makeText(QL_SuaSanPham.this," Sửa thành công",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(QL_SuaSanPham.this, HomeAdmin.class));
+                Toast.makeText(QL_SuaTaiKhoan.this," Sửa thành công ",Toast.LENGTH_LONG).show();
+                onBackPressed();
 
             }
         });
 
-        ibtnCamera.setOnClickListener(new View.OnClickListener() {
+        imageButtonCamera_QLTK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(
-                        QL_SuaSanPham.this,
+                        QL_SuaTaiKhoan.this,
                         new String[]{Manifest.permission.CAMERA},
                         REQUEST_CODE_CAMERA
                 );
@@ -89,41 +96,23 @@ public class QL_SuaSanPham extends AppCompatActivity {
             }
         });
 
-        ibtnFolder.setOnClickListener(new View.OnClickListener() {
+        imageButtonFolder_QLTK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(
-                        QL_SuaSanPham.this,
+                        QL_SuaTaiKhoan.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_FOLDER
                 );
             }
         });
-        quaylai_QLSP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+
+        buttonHuy_QLTK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-    }
-
-    private void Getdata() {
-        sanPhamDTO = SanPhamAdminAdapter.sanPhamDTOList.get(id);
-        MASP = sanPhamDTO.getMaSP();
-        editTen.setText(sanPhamDTO.getTenSP());
-        edt_GiaSP.setText(String.valueOf(sanPhamDTO.getGiaSP()));
-        edtDanhMuc.setText(String.valueOf(sanPhamDTO.getIDDANHMUC()));
-        edtSoLuong.setText(String.valueOf(sanPhamDTO.getSl_SP()));
-        edtSPmoi.setText(String.valueOf(sanPhamDTO.getSPNEW()));
-        byte[] hinhAnh = sanPhamDTO.getImageSP();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0,hinhAnh.length);
-        imgHinh.setImageBitmap(bitmap);
     }
 
     @Override
@@ -136,7 +125,7 @@ public class QL_SuaSanPham extends AppCompatActivity {
                     startActivityForResult(intent,REQUEST_CODE_CAMERA);
                 }else
                 {
-                    Toast.makeText(QL_SuaSanPham.this," Ban khong cho phep mo camera", Toast.LENGTH_LONG).show();
+                    Toast.makeText(QL_SuaTaiKhoan.this," Ban khong cho phep mo camera", Toast.LENGTH_LONG).show();
                 }
                 break;
             case REQUEST_CODE_FOLDER:
@@ -147,7 +136,7 @@ public class QL_SuaSanPham extends AppCompatActivity {
                     startActivityForResult(intent,REQUEST_CODE_FOLDER);
                 }else
                 {
-                    Toast.makeText(QL_SuaSanPham.this," Ban khong cho phep mo folder", Toast.LENGTH_LONG).show();
+                    Toast.makeText(QL_SuaTaiKhoan.this," Ban khong cho phep mo folder", Toast.LENGTH_LONG).show();
                 }
                 break;
         }
@@ -159,7 +148,7 @@ public class QL_SuaSanPham extends AppCompatActivity {
         if(requestCode == REQUEST_CODE_CAMERA && resultCode == RESULT_OK && data != null)
         {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            imgHinh.setImageBitmap(bitmap);
+            imageViewHinh_QLTK.setImageBitmap(bitmap);
         }
         if(requestCode == REQUEST_CODE_FOLDER && resultCode == RESULT_OK && data != null)
         {
@@ -167,7 +156,7 @@ public class QL_SuaSanPham extends AppCompatActivity {
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                imgHinh.setImageBitmap(bitmap);
+                imageViewHinh_QLTK.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -175,19 +164,44 @@ public class QL_SuaSanPham extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+    private void Getdata() {
+        taiKhoanDTO = TaiKhoanAdminAdapter.taiKhoanDTOList.get(id);
+        MATK = taiKhoanDTO.getMATK();
+        edt_TenTaiKhoan_QLTK.setText(taiKhoanDTO.getTENTK());
+        edt_MatKhau_QLTK.setText(taiKhoanDTO.getMATKHAU());
+        edt_SDT_QLTK.setText(String.valueOf(taiKhoanDTO.getSDT()));
+        edt_Email_QLTK.setText(taiKhoanDTO.getEMAIL());
+        edt_NgaySinh_QLTK.setText(taiKhoanDTO.getNGAYSINH());
+        edt_LoaiTK_QLTK.setText(String.valueOf(taiKhoanDTO.getMAQUYEN()));
+        edt_DiaChi_QLTK.setText(taiKhoanDTO.getDIACHI());
 
+
+        if(taiKhoanDTO.getHINHANH() == null)
+        {
+            imageViewHinh_QLTK.setImageResource(R.drawable.user);
+        }
+        else
+        {
+            byte[] hinhAnh = taiKhoanDTO.getHINHANH();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0,hinhAnh.length);
+            imageViewHinh_QLTK.setImageBitmap(bitmap);
+        }
+
+    }
     private void Anhxa() {
-        quaylai_QLSP = findViewById(R.id.quaylai_QLSP);
-        btnAdd = (Button) findViewById(R.id.buttonAdd);
-        btnCancel = (Button) findViewById(R.id.buttonHuy_QlSP);
-        editTen =  (EditText) findViewById(R.id.edt_TenSP_QLSP);
-        edtDanhMuc = (EditText) findViewById(R.id.edt_IDDanhMuc_QLSP);
-        edtSoLuong = (EditText) findViewById(R.id.edt_SLSP_QLSP);
-        edt_GiaSP = (EditText) findViewById(R.id.edt_GiaSP_QLSP);
-        edtSPmoi = (EditText) findViewById(R.id.edt_SPmoi_QLSP);
-        ibtnCamera = (ImageButton) findViewById(R.id.imageButtonCamera);
-        ibtnFolder = (ImageButton) findViewById(R.id.imageButtonFolder);
-        imgHinh = (ImageView) findViewById(R.id.imageViewHinh_QLSP);
+        imageButtonCamera_QLTK = findViewById(R.id.imageButtonCamera_QLTK);
+        quaylai_qltk = findViewById(R.id.quaylai_qltk);
+        imageButtonFolder_QLTK = findViewById(R.id.imageButtonFolder_QLTK);
+        edt_TenTaiKhoan_QLTK = findViewById(R.id.edt_TenTaiKhoan_QLTK);
+        edt_MatKhau_QLTK = findViewById(R.id.edt_MatKhau_QLTK);
+        edt_SDT_QLTK = findViewById(R.id.edt_SDT_QLTK);
+        edt_Email_QLTK = findViewById(R.id.edt_Email_QLTK);
+        edt_NgaySinh_QLTK = findViewById(R.id.edt_NgaySinh_QLTK);
+        edt_LoaiTK_QLTK = findViewById(R.id.edt_LoaiTK_QLTK);
+        edt_DiaChi_QLTK = findViewById(R.id.edt_DiaChi_QLTK);
+        imageViewHinh_QLTK = findViewById(R.id.imageViewHinh_QLTK);
+        buttonAdd_QLTK = findViewById(R.id.buttonAdd_QLTK);
+        buttonHuy_QLTK = findViewById(R.id.buttonHuy_QLTK);
 
     }
 }

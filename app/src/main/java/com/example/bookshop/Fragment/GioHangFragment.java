@@ -21,7 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.bookshop.DAO.GioHangAdapter;
+import com.example.bookshop.Adapter.GioHangAdapter;
 import com.example.bookshop.DTO.GioHang;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.HomeActivity;
@@ -174,6 +174,8 @@ public class GioHangFragment extends Fragment {
                 TrangChuFragment.database.DELETE_GIOHANG(LoginActivity.taiKhoanDTO.getMATK());
                 GetData();
                 Tongtien();
+                Toast.makeText(getActivity(),"Thanh toán thành công",Toast.LENGTH_LONG).show();
+
             }
         }).setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
             @Override

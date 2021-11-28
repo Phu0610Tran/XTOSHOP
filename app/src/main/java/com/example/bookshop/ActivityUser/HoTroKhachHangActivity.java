@@ -66,7 +66,7 @@ public class HoTroKhachHangActivity extends AppCompatActivity {
         img_Exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HoTroKhachHangActivity.this, HomeActivity.class));
+                onBackPressed();
             }
         });
 

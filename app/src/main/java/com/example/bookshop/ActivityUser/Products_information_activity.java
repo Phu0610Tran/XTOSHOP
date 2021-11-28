@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bookshop.DAO.SanPhamDAO;
+import com.example.bookshop.Adapter.SanPhamAdapter;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
@@ -59,7 +59,7 @@ public class Products_information_activity extends AppCompatActivity {
 
 
                 int SL = Integer.parseInt(editTextSL.getText().toString());
-                sanPhamDTO = SanPhamDAO.sanPhamDTOList.get(id);
+                sanPhamDTO = SanPhamAdapter.sanPhamDTOList.get(id);
 
                 if(LoginActivity.taiKhoanDTO.getMATK() == -1)
                 {
@@ -99,7 +99,7 @@ public class Products_information_activity extends AppCompatActivity {
 
     private void GetDataSP() {
         //get data
-        sanPhamDTO = SanPhamDAO.sanPhamDTOList.get(id);
+        sanPhamDTO = SanPhamAdapter.sanPhamDTOList.get(id);
         String ten = sanPhamDTO.getTenSP();
         String mota = sanPhamDTO.getMotaSP();
         name.setText(ten);

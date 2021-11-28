@@ -47,7 +47,6 @@ public class InforUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infor_user);
-
         Anhxa();
 
         GetData();
@@ -134,6 +133,7 @@ public class InforUserActivity extends AppCompatActivity {
 
 
         edtTaikhoan.setText(tentaikhoan);
+        edtTaikhoan.setEnabled(false);
         edtSdt.setText(String.valueOf(sdt));
         edtEmail.setText(email);
         edtDiachi.setText(diachi);

@@ -3,12 +3,14 @@ package com.example.bookshop.ActivityUser;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.bookshop.ActivityAdmin.HomeAdmin;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 import com.example.bookshop.Fragment.GioHangFragment;
 import com.example.bookshop.Fragment.CFragment;
@@ -57,9 +60,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    ImageView imagegiohang;
     // Drawer
 
-    TextView txt_TenTaiKhoan;
+    TextView txt_TenTaiKhoan,count_giohang;
 
 
     @SuppressLint("RestrictedApi")
@@ -70,7 +74,35 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         AnhXa();
         HienThiTen();
+        demSL();
 
+
+        imagegiohang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                intent.putExtra("giohang", R.id.nav_cart);
+                startActivity(intent);
+            }
+        });
+
+        Intent intent = getIntent();
+        int GioHangIntent = intent.getIntExtra("giohang", R.id.nav_home);
+        if(GioHangIntent == R.id.nav_cart){
+            navigationView.setCheckedItem(GioHangIntent);
+            replaceFragment(new GioHangFragment());
+        }
+
+    }
+
+    private void demSL() {
+        if(LoginActivity.taiKhoanDTO.getMATK() != -1){
+            Cursor cursor = TrangChuFragment.database.Getdata("SELECT SUM ( SOLUONG ) FROM GIOHANG WHERE IDTK = "
+                    + LoginActivity.taiKhoanDTO.getMATK());
+            cursor.moveToNext();
+//            Toast.makeText(HomeActivity.this, "sssss " + cursor.getInt(0), Toast.LENGTH_SHORT).show();
+            count_giohang.setText(String.valueOf(cursor.getInt(0)));
+        }
 
     }
 
@@ -104,6 +136,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void AnhXa() {
+        imagegiohang = findViewById(R.id.imagegiohang);
+        count_giohang = findViewById(R.id.count_giohang);
         img_user_home = findViewById(R.id.img_user_home);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.home_nav_view);

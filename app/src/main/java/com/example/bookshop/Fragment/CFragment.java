@@ -11,7 +11,7 @@ import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.bookshop.DAO.SanPhamDAO;
+import com.example.bookshop.Adapter.SanPhamAdapter;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.Products_information_activity;
@@ -27,7 +27,7 @@ public class CFragment extends Fragment {
     private static Database database;
     GridView gridView_SanPham;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
-    SanPhamDAO adapter;
+    SanPhamAdapter adapter;
 
 
     public CFragment() {
@@ -47,7 +47,7 @@ public class CFragment extends Fragment {
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
-        adapter = new SanPhamDAO(CFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
+        adapter = new SanPhamAdapter(CFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
         gridView_SanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
