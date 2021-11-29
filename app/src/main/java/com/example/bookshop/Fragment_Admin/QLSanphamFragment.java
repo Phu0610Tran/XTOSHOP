@@ -15,10 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.bookshop.ActivityAdmin.QL_SuaSanPham;
+import com.example.bookshop.Adapter.CategoryAdapter;
 import com.example.bookshop.Adapter.SanPhamAdminAdapter;
+import com.example.bookshop.DTO.Category;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
@@ -28,9 +31,14 @@ import java.util.ArrayList;
 public class QLSanphamFragment extends Fragment {
 
     private View view;
+    ArrayList<Category> listCategory;
+    Spinner spnTheloai;
     GridView gridView_SanPham;
     ArrayList<SanPhamDTO> sanPhamDTOArrayList;
     SanPhamAdminAdapter adapter;
+    CategoryAdapter categoryAdapter;
+    int Danhmuc;
+    String sql;
     public QLSanphamFragment() {
     }
 
@@ -44,6 +52,26 @@ public class QLSanphamFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_q_l_sanpham, container, false);
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewQLSanPham);
+        Anhxa();
+        listCategory = getListCategory();
+        categoryAdapter = new CategoryAdapter(getActivity(), R.layout.item_select, listCategory);
+        spnTheloai.setAdapter(categoryAdapter);
+        Danhmuc = 0;
+        spnTheloai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Danhmuc = categoryAdapter.getItem(position).getIDcategory();
+                GetData();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
         sanPhamDTOArrayList = new ArrayList<>();
         adapter = new SanPhamAdminAdapter(QLSanphamFragment.this, R.layout.product_sanpham_admin, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
@@ -65,13 +93,25 @@ public class QLSanphamFragment extends Fragment {
         return view;
     }
 
+    private void Anhxa() {
+        spnTheloai = view.findViewById(R.id.spnAddTheloai);
+    }
+
     @Override
     public void onStart() {
         GetData();
         super.onStart();
     }
     private void GetData() {
-        Cursor cursor = TrangChuFragment.database.Getdata("SELECT * FROM SANPHAM ");
+        if(Danhmuc==0)
+        {
+            sql="SELECT * FROM SANPHAM";
+        }
+        else {
+            sql =" SELECT * FROM SANPHAM WHERE IDDANHMUC = " + Danhmuc;
+        }
+
+        Cursor cursor = TrangChuFragment.database.Getdata(sql);
         sanPhamDTOArrayList.clear();
         while (cursor.moveToNext())
         {
@@ -112,5 +152,16 @@ public class QLSanphamFragment extends Fragment {
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+    private ArrayList<Category> getListCategory() {
+        ArrayList<Category> list = new ArrayList<>();
+
+        list.add(new Category("Python",1));
+        list.add(new Category("C#",2));
+        list.add(new Category("Java",3));
+        list.add(new Category("Web", 4));
+        list.add(new Category("Android", 5));
+
+        return list;
     }
 }

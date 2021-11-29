@@ -32,7 +32,7 @@ public class HoaDonAdmin extends AppCompatActivity {
     ArrayList<HoaDon> hoaDonArrayList;
     HoaDonAdapter adapter;
     LinearLayout layoutdoanhthu;
-    TextView txtthongbao,title_qlhd,tongtien_HD,tongchi;
+    TextView title_qlhd,tongtien_HD,tongchi;
     ImageButton ibtnExit_lichsu;
     int idcthd;
     @Override

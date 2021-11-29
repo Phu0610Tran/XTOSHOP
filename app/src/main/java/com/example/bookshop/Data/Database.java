@@ -15,6 +15,8 @@ import androidx.annotation.Nullable;
 import com.example.bookshop.DTO.SanPhamDTO;
 import com.example.bookshop.DTO.TaiKhoanDTO;
 
+import java.util.ArrayList;
+
 public class Database extends SQLiteOpenHelper {
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -241,6 +243,25 @@ public class Database extends SQLiteOpenHelper {
 
         }
         return null;
+    }
+
+    public ArrayList<SanPhamDTO> TIMKIEM(){
+        ArrayList<SanPhamDTO> doAnArrayList = new ArrayList<>();
+        String truyvan = "SELECT * FROM SANPHAM ";
+        Cursor cursor = Getdata(truyvan);
+        if (cursor.getCount() != 0) {
+            while (cursor.moveToNext()){
+                doAnArrayList.add(new SanPhamDTO(
+                        cursor.getInt(0),
+                        cursor.getBlob(1),
+                        cursor.getString(2),
+                        cursor.getInt(3),
+                        cursor.getInt(4)
+                ));
+            }
+            return doAnArrayList;
+        }
+        return doAnArrayList;
     }
 
     public void UPDATE_SOLUONG(int IDSP,int Soluong)

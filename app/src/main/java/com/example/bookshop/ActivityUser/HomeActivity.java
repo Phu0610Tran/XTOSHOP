@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -60,7 +61,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
-    ImageView imagegiohang;
+    ImageView imagegiohang,timkiem_home;
+
     // Drawer
 
     TextView txt_TenTaiKhoan,count_giohang;
@@ -92,6 +94,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(GioHangIntent);
             replaceFragment(new GioHangFragment());
         }
+        timkiem_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,TimKiem.class));
+            }
+        });
 
     }
 
@@ -100,7 +108,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Cursor cursor = TrangChuFragment.database.Getdata("SELECT SUM ( SOLUONG ) FROM GIOHANG WHERE IDTK = "
                     + LoginActivity.taiKhoanDTO.getMATK());
             cursor.moveToNext();
-//            Toast.makeText(HomeActivity.this, "sssss " + cursor.getInt(0), Toast.LENGTH_SHORT).show();
             count_giohang.setText(String.valueOf(cursor.getInt(0)));
         }
 
@@ -136,6 +143,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void AnhXa() {
+        timkiem_home = findViewById(R.id.timkiem_home);
         imagegiohang = findViewById(R.id.imagegiohang);
         count_giohang = findViewById(R.id.count_giohang);
         img_user_home = findViewById(R.id.img_user_home);

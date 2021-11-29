@@ -17,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BOOKSHOP">
         <activity
+            android:name=".ActivityUser.TimKiem"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityUser.MainActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityUser.KetQua_Activity"
+            android:exported="true" />
+        <activity
             android:name=".ActivityAdmin.HoaDonAdmin"
             android:exported="true" />
         <activity
