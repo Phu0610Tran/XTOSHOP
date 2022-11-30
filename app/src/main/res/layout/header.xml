@@ -7,11 +7,7 @@
     android:layout_height="70dp"
     android:orientation="vertical"
     android:background="@color/white">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/dog"
-        android:layout_marginLeft="200dp"/>
+
 
 
     <LinearLayout
@@ -23,11 +19,7 @@
         android:layout_gravity="center">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/img_user_home"
-            android:layout_width="56dp"
-            android:layout_height="68dp"
-            android:src="@drawable/user" />
+
         <TextView
             android:id="@+id/txtTennguoidung"
             android:layout_width="wrap_content"

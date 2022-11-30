@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/MyUser"
-    android:background="#9DDCE4"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="56dp"
@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:background="@color/white">
+
+            android:background="#FFFFFF">
 
             <de.hdodenhof.circleimageview.CircleImageView
 
@@ -44,7 +45,7 @@
                 android:text="User"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:textColor="#FFC107">
+                android:textColor="#151515">
             </TextView>
 
         </LinearLayout>
@@ -76,38 +77,13 @@
                     android:layout_weight="1.1"
                     android:paddingLeft="@dimen/size20dp"
                     android:gravity="left |center"
+                    android:textStyle="bold"
                     android:text="Mật khẩu và bảo mật"
                     android:textSize="@dimen/size20dp"
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#000000"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10">
 
-                <ImageView
-                    android:id="@+id/icon2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.9"
-                    android:background="@null"
-                    android:paddingLeft="@dimen/size10dp"
-                    android:src="@drawable/baseline_medical_services_24" />
-
-                <TextView
-                    android:id="@+id/txtDichvu"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1.1"
-                    android:paddingLeft="@dimen/size20dp"
-                    android:gravity="left |center"
-                    android:textColor="#FFFFFF"
-                    android:text="Dịch vụ"
-                    android:textSize="@dimen/size20dp"
-                    />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -129,9 +105,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1.1"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:text="Lịch sử giao dịch"
                     android:paddingLeft="@dimen/size20dp"
+                    android:textStyle="bold"
                     android:gravity="left |center"
                     android:textSize="@dimen/size20dp"
                      />
@@ -145,93 +122,13 @@
             android:orientation="vertical"
             >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10">
 
-                <ImageView
-                    android:id="@+id/icon3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.9"
-                    android:background="@null"
-                    android:paddingLeft="@dimen/size10dp"
-                    android:src="@drawable/baseline_support_agent_24" />
 
-                <TextView
-                    android:id="@+id/txtHoTroKhachHang"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1.1"
 
-                    android:text="Trung Tâm Hổ Trợ"
-                    android:textSize="@dimen/size20dp"
-                    android:paddingLeft="@dimen/size20dp"
-                    android:gravity="left |center"
-                    android:textColor="#FFFFFF"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <ImageView
-
-                    android:id="@+id/icon4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.9"
-                    android:background="@null"
-                    android:paddingLeft="@dimen/size10dp"
-                    android:src="@drawable/baseline_help_24" />
-
-                <TextView
-                    android:id="@+id/txtThongTinUngDung"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1.1"
-
-                    android:text="Thông Tin Ứng Dụng"
-                    android:textSize="@dimen/size20dp"
-                    android:paddingLeft="@dimen/size20dp"
-                    android:gravity="left |center"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:padding="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="10">
 
-            <ImageView
-                android:id="@+id/icon5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="8.9"
-                android:background="@null"
-                android:paddingLeft="@dimen/size10dp"
-                android:src="@drawable/baseline_settings_24" />
-
-            <TextView
-                android:id="@+id/txtCaidat"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1.1"
-                android:paddingLeft="@dimen/size20dp"
-                android:gravity="left |center"
-
-                android:text="Cài đặt"
-                android:textSize="@dimen/size20dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

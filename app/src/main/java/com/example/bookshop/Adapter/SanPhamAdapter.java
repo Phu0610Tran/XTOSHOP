@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Data.CreateDatabase;
 import com.example.bookshop.R;
 

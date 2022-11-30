@@ -16,7 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookshop.Adapter.SanPhamAdapter;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Adapter.TimKiemAdapter;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
@@ -32,13 +33,15 @@ public class Products_information_activity extends AppCompatActivity {
     EditText editTextSL;
     Button btnaddcart;
     ImageButton btn_quaylai;
-    int id;
+    int id,idtk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_information);
         Intent intent = getIntent();
-        id = intent.getIntExtra("id",1123);
+        id = intent.getIntExtra("id",1);
+        idtk = intent.getIntExtra("idtk",2);
+//        Toast.makeText(Products_information_activity.this, " sss : " + id + idtk, Toast.LENGTH_SHORT).show();
         Anhxa();
 
         GetDataSP();
@@ -59,13 +62,23 @@ public class Products_information_activity extends AppCompatActivity {
 
 
                 int SL = Integer.parseInt(editTextSL.getText().toString());
-                sanPhamDTO = SanPhamAdapter.sanPhamDTOList.get(id);
+
+                if(idtk==2){
+                    sanPhamDTO = SanPhamAdapter.sanPhamDTOList.get(id);
+                }else
+                {
+                    sanPhamDTO = TimKiemAdapter.sanPhamDTOList.get(idtk);
+                }
+
 
                 if(LoginActivity.taiKhoanDTO.getMATK() == -1)
                 {
                     Toast.makeText(Products_information_activity.this, "Bạn phải đăng nhập để mua hàng !", Toast.LENGTH_SHORT).show();
-                }else if( SL > sanPhamDTO.getSl_SP()  ){
+                }else if( SL > sanPhamDTO.getSl_SP() ){
                     Toast.makeText(Products_information_activity.this, "Hàng trong kho chỉ còn : " + (sanPhamDTO.getSl_SP()- 1) + " sản phẩm ", Toast.LENGTH_SHORT).show();
+
+                }else if(  SL == 0 ){
+                    Toast.makeText(Products_information_activity.this, " Số lượng không hợp lệ  " , Toast.LENGTH_SHORT).show();
 
                 }
                 else
@@ -99,7 +112,12 @@ public class Products_information_activity extends AppCompatActivity {
 
     private void GetDataSP() {
         //get data
-        sanPhamDTO = SanPhamAdapter.sanPhamDTOList.get(id);
+        if(idtk==2){
+            sanPhamDTO = SanPhamAdapter.sanPhamDTOList.get(id);
+        }else
+        {
+            sanPhamDTO = TimKiemAdapter.sanPhamDTOList.get(idtk);
+        }
         String ten = sanPhamDTO.getTenSP();
         String mota = sanPhamDTO.getMotaSP();
         name.setText(ten);

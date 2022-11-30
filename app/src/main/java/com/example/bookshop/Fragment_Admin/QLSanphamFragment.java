@@ -21,8 +21,8 @@ import android.widget.Toast;
 import com.example.bookshop.ActivityAdmin.QL_SuaSanPham;
 import com.example.bookshop.Adapter.CategoryAdapter;
 import com.example.bookshop.Adapter.SanPhamAdminAdapter;
-import com.example.bookshop.DTO.Category;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Models.Category;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
@@ -156,11 +156,11 @@ public class QLSanphamFragment extends Fragment {
     private ArrayList<Category> getListCategory() {
         ArrayList<Category> list = new ArrayList<>();
 
-        list.add(new Category("Python",1));
-        list.add(new Category("C#",2));
-        list.add(new Category("Java",3));
-        list.add(new Category("Web", 4));
-        list.add(new Category("Android", 5));
+        list.add(new Category("Adidas",1));
+        list.add(new Category("Bitis",2));
+        list.add(new Category("Converse",3));
+        list.add(new Category("Nike", 4));
+        list.add(new Category("Vans", 5));
 
         return list;
     }

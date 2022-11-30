@@ -12,7 +12,7 @@ import android.widget.GridView;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.Adapter.SanPhamAdapter;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.Products_information_activity;
 import com.example.bookshop.R;
@@ -20,7 +20,7 @@ import com.example.bookshop.R;
 import java.util.ArrayList;
 
 
-public class WebFragment extends Fragment {
+public class ConverseFragment extends Fragment {
 
     private View view;
 
@@ -30,7 +30,7 @@ public class WebFragment extends Fragment {
     SanPhamAdapter adapter;
 
 
-    public WebFragment() {
+    public ConverseFragment() {
         // Required empty public constructor
     }
 
@@ -39,13 +39,13 @@ public class WebFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_web, container, false);
+        view = inflater.inflate(R.layout.fragment_converse, container, false);
 
         database = new Database(getActivity(),"BookShop",null,2);
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
-        adapter = new SanPhamAdapter(WebFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
+        adapter = new SanPhamAdapter(ConverseFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
         gridView_SanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -67,7 +67,7 @@ public class WebFragment extends Fragment {
 
     private void GetData() {
         //get data
-        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 4");
+        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 3");
         sanPhamDTOArrayList.clear();
         while (cursor.moveToNext())
         {

@@ -1,19 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/size20dp"
-    tools:context=".Fragment_Admin.QLGopyFragment">
+    android:layout_marginTop="56dp"
+    android:orientation="vertical"
 
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".Admin_Fragment.QLGopyFragment">
     <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Góp Ý"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!--        <TextView-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:layout_width="50dp"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:text="CHECK"-->
+        <!--            android:textSize="12sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:gravity="center"/>-->
+        <TextView
+            android:textColor="@color/black"
+
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Tên"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+        <TextView
+            android:textColor="@color/black"
+
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="Số điện thoại"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:gravity="center"/>
+        <TextView
+            android:textColor="@color/black"
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text=" Nội dung "
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+    <GridView
+        android:id="@+id/gridviewgopy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Đây là quản lý góp y nha thèn ml"
-        android:textSize="@dimen/size30dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:numColumns="1"/>
 
-</FrameLayout>
+</LinearLayout>

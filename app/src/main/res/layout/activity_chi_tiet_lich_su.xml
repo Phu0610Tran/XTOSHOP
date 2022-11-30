@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#FF9800">
+        android:background="#67B5D8">
 
         <ImageButton
             android:scaleType="fitXY"
@@ -27,15 +27,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+
             android:paddingLeft="@dimen/size20dp"
             android:gravity="center|left"
-            android:text="Chi tiết hóa đơn"
             android:textSize="@dimen/size20dp"
             android:textStyle="bold"/>
 
     </LinearLayout>
     <LinearLayout
-        android:background="#9DDCE4"
+        android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -44,7 +44,7 @@
             android:id="@+id/imageHinhlichsu_HD"
             android:layout_width="170dp"
             android:layout_height="150dp"
-            android:src="@drawable/bill"
+            android:src="@drawable/logo"
             />
 
         <LinearLayout

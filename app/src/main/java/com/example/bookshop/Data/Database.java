@@ -7,13 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
-import android.text.Editable;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.bookshop.DTO.SanPhamDTO;
-import com.example.bookshop.DTO.TaiKhoanDTO;
+import com.example.bookshop.Models.SanPhamDTO;
+import com.example.bookshop.Models.TaiKhoanDTO;
 
 import java.util.ArrayList;
 
@@ -61,7 +59,15 @@ public class Database extends SQLiteOpenHelper {
         statement.bindBlob(1,hinh);
         statement.executeInsert();
     }
+    public void DELETE_GOPY(int IDGOPY){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE  FROM GOPY WHERE IDGOPY = "+ IDGOPY  ;
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
 
+
+        statement.executeInsert();
+    }
     //---------------------------------------------quan ly
     public void UPDATE_DOAN(String ten,byte[] hinh,int SOLUONG,int  GIA,int IDDANHMUC,int SPNEW, int IDSP ){
 

@@ -20,13 +20,11 @@ import android.widget.Toast;
 
 import com.example.bookshop.ActivityAdmin.QL_SuaSanPham;
 import com.example.bookshop.Adapter.SanPhamAdminAdapter;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 
 public class ThongKeSanPham extends Fragment {

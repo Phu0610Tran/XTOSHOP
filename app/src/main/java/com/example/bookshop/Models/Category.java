@@ -1,8 +1,9 @@
-package com.example.bookshop.DTO;
+package com.example.bookshop.Models;
 
 public class Category {
     private String name;
     private int IDcategory;
+
 
     public Category(String name, int IDcategory) {
         this.name = name;

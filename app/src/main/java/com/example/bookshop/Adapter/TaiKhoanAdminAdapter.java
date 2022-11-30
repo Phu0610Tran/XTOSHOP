@@ -13,14 +13,11 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.bookshop.DTO.SanPhamDTO;
-import com.example.bookshop.DTO.TaiKhoanDTO;
-import com.example.bookshop.Data.CreateDatabase;
+import com.example.bookshop.ActivityUser.LoginActivity;
+import com.example.bookshop.Models.TaiKhoanDTO;
 import com.example.bookshop.R;
 
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 
 public class TaiKhoanAdminAdapter extends BaseAdapter {
     SQLiteDatabase database;
@@ -95,10 +92,13 @@ public class TaiKhoanAdminAdapter extends BaseAdapter {
         id = taiKhoanDTO.getMATK();
 
         // chuyen byte[] -> ve bitmap
-        byte[] hinhAnh = taiKhoanDTO.getHINHANH();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
-        holder.img_user_qltk.setImageBitmap(bitmap);
-
+        if (taiKhoanDTO.getHINHANH() == null){
+            holder.img_user_qltk.setImageResource(R.drawable.user);
+        }else {
+            byte[] hinhAnh = taiKhoanDTO.getHINHANH();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh, 0, hinhAnh.length);
+            holder.img_user_qltk.setImageBitmap(bitmap);
+        }
         return view;
     }
 }

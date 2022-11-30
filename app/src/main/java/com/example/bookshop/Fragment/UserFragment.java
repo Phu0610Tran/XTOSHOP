@@ -13,11 +13,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.bookshop.ActivityUser.HoTroKhachHangActivity;
 import com.example.bookshop.ActivityUser.InforUserActivity;
 import com.example.bookshop.ActivityUser.LoginActivity;
 import com.example.bookshop.Data.TaiKhoanDAO;
-import com.example.bookshop.DTO.TaiKhoanDTO;
+import com.example.bookshop.Models.TaiKhoanDTO;
 import com.example.bookshop.R;
 import com.example.bookshop.ActivityUser.lichsuActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -88,14 +87,8 @@ public class UserFragment extends Fragment {
     private void AnhXa() {
         img_user_cn = mView.findViewById(R.id.img_user_cn);
         txt_Tentaikhoan = mView.findViewById(R.id.txtUsername);
-        txt_Hotrokhachhang = mView.findViewById(R.id.txtHoTroKhachHang);
         txt_lichsu = mView.findViewById(R.id.txtLichsu);
-        txt_Hotrokhachhang.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), HoTroKhachHangActivity.class));
-            }
-        });
+
 
         txt_Baomat = mView.findViewById(R.id.txtBaomat);
         txt_Baomat.setOnClickListener(new View.OnClickListener() {

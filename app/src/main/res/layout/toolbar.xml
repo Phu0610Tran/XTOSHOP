@@ -26,7 +26,7 @@
                 android:textStyle="bold"
                 android:textSize="30sp"
                 android:textColor="#F8BD0C"
-                android:text="BOOKSHOP"/>
+                />
 
 
 
@@ -49,12 +49,12 @@
                     android:layout_gravity="right"
                     android:layout_height="30dp"/>
                 <TextView
-                    android:background="@drawable/custom"
+
                     android:layout_marginRight="20dp"
                     android:id="@+id/count_giohang"
                     android:layout_gravity="right"
                     android:gravity="center"
-                    android:textColor="#000000"
+                    android:textColor="#F30909"
                     android:layout_width="30dp"
                     android:layout_height="20dp"
                     android:textSize="15sp"

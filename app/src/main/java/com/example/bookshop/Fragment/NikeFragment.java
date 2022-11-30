@@ -12,7 +12,7 @@ import android.widget.GridView;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.Adapter.SanPhamAdapter;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.Products_information_activity;
 import com.example.bookshop.R;
@@ -20,7 +20,7 @@ import com.example.bookshop.R;
 import java.util.ArrayList;
 
 
-public class JavaFragment extends Fragment {
+public class NikeFragment extends Fragment {
 
     private View view;
 
@@ -30,7 +30,7 @@ public class JavaFragment extends Fragment {
     SanPhamAdapter adapter;
 
 
-    public JavaFragment() {
+    public NikeFragment() {
         // Required empty public constructor
     }
 
@@ -39,7 +39,7 @@ public class JavaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_java, container, false);
+        view = inflater.inflate(R.layout.fragment_nike, container, false);
 
         database = new Database(getActivity(),"BookShop",null,2);
 //        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
@@ -47,7 +47,7 @@ public class JavaFragment extends Fragment {
 
         gridView_SanPham = (GridView) view.findViewById(R.id.gridviewSanPham);
         sanPhamDTOArrayList = new ArrayList<>();
-        adapter = new SanPhamAdapter(JavaFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
+        adapter = new SanPhamAdapter(NikeFragment.this, R.layout.product_layout, sanPhamDTOArrayList);
         gridView_SanPham.setAdapter(adapter);
         gridView_SanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -69,7 +69,7 @@ public class JavaFragment extends Fragment {
 
     private void GetData() {
         //get data
-        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 3");
+        Cursor cursor = database.Getdata("SELECT * FROM SANPHAM WHERE IDDANHMUC = 4");
         while (cursor.moveToNext())
         {
             sanPhamDTOArrayList.add(new SanPhamDTO(

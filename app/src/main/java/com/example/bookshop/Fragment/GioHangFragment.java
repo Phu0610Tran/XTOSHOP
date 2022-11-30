@@ -22,7 +22,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookshop.Adapter.GioHangAdapter;
-import com.example.bookshop.DTO.GioHang;
+import com.example.bookshop.Models.GioHang;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.HomeActivity;
 import com.example.bookshop.ActivityUser.LoginActivity;
@@ -180,7 +180,7 @@ public class GioHangFragment extends Fragment {
         }).setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(),"ssssss",Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(),"ssssss",Toast.LENGTH_LONG).show();
             }
         });
         builder.show();

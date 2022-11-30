@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.bookshop.Adapter.HoaDonAdapter;
-import com.example.bookshop.DTO.HoaDon;
+import com.example.bookshop.Models.HoaDon;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
@@ -70,7 +70,6 @@ public class lichsuActivity extends AppCompatActivity {
         txtthongbao = (TextView) findViewById(R.id.thongbaolichsu);
         title_qlhd = findViewById(R.id.title_qlhd);
         tongtien_HD = findViewById(R.id.tongtien_HD);
-        title_qlhd.setText(" Lịch sử mua hàng");
         tongchi = findViewById(R.id.tongchi);
         tongchi.setText(" Tổng chi :");
     }

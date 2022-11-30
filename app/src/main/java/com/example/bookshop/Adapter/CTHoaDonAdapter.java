@@ -10,8 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.bookshop.DTO.CTHoaDon;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Models.CTHoaDon;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Fragment.TrangChuFragment;
 import com.example.bookshop.R;
 

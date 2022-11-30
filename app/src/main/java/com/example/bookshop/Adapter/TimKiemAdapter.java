@@ -1,7 +1,6 @@
 package com.example.bookshop.Adapter;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -11,30 +10,22 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
-
 import com.example.bookshop.Models.SanPhamDTO;
-import com.example.bookshop.Data.CreateDatabase;
 import com.example.bookshop.R;
 
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class SanPhamAdminAdapter extends BaseAdapter {
-    SQLiteDatabase database;
+public class TimKiemAdapter extends BaseAdapter {
 
-    private Fragment context;
+    private Context context;
     private int layout;
     public static List<SanPhamDTO> sanPhamDTOList;
     int id;
 
-    public SanPhamAdminAdapter(Context context){
-        CreateDatabase createDatabase = new CreateDatabase(context);
-        database = createDatabase.open();
-    }
 
-    public SanPhamAdminAdapter(Fragment context, int layout, List<SanPhamDTO> sanPhamDTOList) {
+    public TimKiemAdapter(Context context, int layout, List<SanPhamDTO> sanPhamDTOList) {
         this.context = context;
         this.layout = layout;
         this.sanPhamDTOList = sanPhamDTOList;
@@ -57,7 +48,7 @@ public class SanPhamAdminAdapter extends BaseAdapter {
     }
 
     static class ViewHolder{
-        TextView txt_TenSP, txt_GiaSP,txt_SoLuong,txt_DanhMuc,txt_SPnew;
+        TextView txt_TenSP, txt_GiaSP,txtSL;
         ImageView img_HinhAnh;
     }
 
@@ -65,31 +56,27 @@ public class SanPhamAdminAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup parent) {
 
-        SanPhamAdminAdapter.ViewHolder holder;
+        TimKiemAdapter.ViewHolder holder;
 
         if (view == null){
-            holder = new SanPhamAdminAdapter.ViewHolder();
+            holder = new TimKiemAdapter.ViewHolder();
             LayoutInflater inflater;
-            inflater = (LayoutInflater) context.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
-            holder.txt_TenSP = (TextView) view.findViewById(R.id.product_ten_QLSP);
-            holder.txt_GiaSP = (TextView) view.findViewById(R.id.product_Gia_QLSP);
-            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.product_image_QLSP);
-            holder.txt_SoLuong = (TextView) view.findViewById(R.id.product_SL_QLSP);
-            holder.txt_DanhMuc = (TextView) view.findViewById(R.id.product_DANHMUC_QLSP);
-            holder.txt_SPnew = (TextView) view.findViewById(R.id.product_TRANGTHAI_QLSP);
+            holder.txt_TenSP = (TextView) view.findViewById(R.id.TenSP_TK);
+            holder.txt_GiaSP = (TextView) view.findViewById(R.id.GiaSP_TK);
+            holder.txtSL = view.findViewById(R.id.SLSP_TK);
+            holder.img_HinhAnh = (ImageView) view.findViewById(R.id.imgHinh_TK);
             view.setTag(holder);
         } else {
-            holder = (SanPhamAdminAdapter.ViewHolder) view.getTag();
+            holder = (TimKiemAdapter.ViewHolder) view.getTag();
         }
 
         SanPhamDTO sanPhamDTO = sanPhamDTOList.get(i);
         String gia = String.valueOf(NumberFormat.getNumberInstance(Locale.US).format(sanPhamDTO.getGiaSP())) + " VNĐ";
         holder.txt_TenSP.setText(sanPhamDTO.getTenSP());
-        holder.txt_GiaSP.setText("Giá : "+ gia);
-        holder.txt_SoLuong.setText("Số Lượng : " + String.valueOf(sanPhamDTO.getSl_SP()));
-        holder.txt_DanhMuc.setText("Danh Mục : " +String.valueOf(sanPhamDTO.getIDDANHMUC()));
-        holder.txt_SPnew.setText("Trạng Thái : " +String.valueOf(sanPhamDTO.getSPNEW()));
+        holder.txt_GiaSP.setText(gia);
+        holder.txtSL.setText("Sản Phẩm : " + String.valueOf(sanPhamDTO.getSl_SP()));
         id = sanPhamDTO.getMaSP();
 
         // chuyen byte[] -> ve bitmap
@@ -99,6 +86,4 @@ public class SanPhamAdminAdapter extends BaseAdapter {
 
         return view;
     }
-
 }
-

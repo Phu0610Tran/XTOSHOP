@@ -1,6 +1,4 @@
-package com.example.bookshop.DTO;
-
-import java.sql.Blob;
+package com.example.bookshop.Models;
 
 public class TaiKhoanDTO {
     int MATK;

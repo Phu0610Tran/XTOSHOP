@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookshop.Adapter.SanPhamAdapter;
-import com.example.bookshop.DTO.SanPhamDTO;
+import com.example.bookshop.Models.SanPhamDTO;
 import com.example.bookshop.Data.Database;
 import com.example.bookshop.ActivityUser.Products_information_activity;
 import com.example.bookshop.R;
@@ -90,10 +90,10 @@ public class TrangChuFragment extends Fragment {
 
     private void ActionViewFlipper() {
         ArrayList<String> mangquangcao = new ArrayList<>();
-        mangquangcao.add("https://image.freepik.com/free-vector/flat-world-book-day-illustration_23-2148485297.jpg");
-        mangquangcao.add("https://image.freepik.com/free-psd/beautiful-book-cover-mockup_23-2149152257.jpg");
-        mangquangcao.add("https://image.freepik.com/free-psd/high-angle-open-tale-book_23-2149160145.jpg");
-        mangquangcao.add("https://image.freepik.com/free-psd/book-hardcover-mockup-three-views_125540-226.jpg");
+        mangquangcao.add("https://www.rollingstone.com/wp-content/uploads/2021/07/metallica-elevated-group-e1627090436110.jpg");
+        mangquangcao.add("https://cdn.tgdd.vn/Files/2022/04/02/1423499/huong-dan-order-giay-converse-o-nuoc-ngoai-cuc-de-202204020114320272.jpg");
+        mangquangcao.add("https://images.dsw.com/is/image/DSWShoes/P221401_header_converse-mobile?impolicy=qlt-medium&imwidth=768&imdensity=1");
+        mangquangcao.add("https://giaysneaker.com.vn/public/media//thumb/af1_vi%E1%BB%81n_xam/nike-air-force-1-trang-vien-gold-like-auth_(11)-570x570.jpg");
 
         for(int i=0;i<mangquangcao.size();i++)
         {

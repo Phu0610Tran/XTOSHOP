@@ -11,7 +11,7 @@
         android:layout_height="50dp"
         android:padding="10dp"
         android:orientation="horizontal"
-        android:background="#FFC107"
+        android:background="@color/blue_nhat"
         android:gravity="center">
         <ImageView
             android:id="@+id/quaylai_qltk"
@@ -169,7 +169,7 @@
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:hint="Địa chỉ"
-                    android:inputType="number"
+                    android:inputType="textMultiLine"
                     android:paddingLeft="20dp"
                     android:gravity="center |left"
                     android:textSize="15sp"

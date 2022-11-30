@@ -5,8 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.bookshop.DTO.TaiKhoanDTO;
-import com.example.bookshop.Data.CreateDatabase;
+import com.example.bookshop.Models.TaiKhoanDTO;
 
 public class TaiKhoanDAO {
     SQLiteDatabase database;

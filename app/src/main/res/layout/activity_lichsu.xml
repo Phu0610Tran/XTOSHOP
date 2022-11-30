@@ -10,7 +10,7 @@
         android:id="@+id/layoutdoanhthu"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#FF9800">
+        android:background="#67B5D8">
 
         <ImageButton
             android:id="@+id/ibtnExit_lichsu"
@@ -28,12 +28,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/size20dp"
+            android:paddingLeft="18dp"
+            android:textColor="@color/black"
             android:gravity="center|left"
             android:text="Lịch sử mua hàng"
             android:textSize="@dimen/size20dp"
             android:textStyle="bold"/>
+        <Spinner
+            android:layout_gravity="center"
+            android:id="@+id/spnAddTheloai_TK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <LinearLayout

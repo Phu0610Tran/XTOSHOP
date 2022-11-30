@@ -118,7 +118,7 @@
                 android:layout_marginLeft="@dimen/size30dp"
                 android:layout_marginTop="@dimen/size20dp"
                 android:layout_weight="1"
-                android:backgroundTint="#FF9800"
+                android:backgroundTint="#3F51B5"
                 android:hint="Gửi"
                 android:textColorHint="@color/white"
                 android:textSize="16dp"

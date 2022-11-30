@@ -20,13 +20,10 @@
             android:name=".ActivityUser.TimKiem"
             android:exported="true" />
         <activity
-            android:name=".ActivityUser.MainActivity2"
-            android:exported="true" />
-        <activity
             android:name=".ActivityUser.KetQua_Activity"
             android:exported="true" />
         <activity
-            android:name=".ActivityAdmin.HoaDonAdmin"
+            android:name=".Fragment_Admin.HoaDonAdmin"
             android:exported="true" />
         <activity
             android:name=".ActivityAdmin.QL_SuaTaiKhoan"
@@ -51,22 +48,16 @@
             android:name=".ActivityUser.lichsuActivity"
             android:exported="true" />
         <activity
-            android:name=".ActivityUser.HoTroKhachHangActivity"
-            android:exported="true" />
-        <activity
             android:name=".ActivityUser.InforUserActivity"
             android:exported="true" />
         <activity
             android:name=".ActivityUser.Products_information_activity"
             android:exported="true" />
         <activity
-            android:name=".ActivityUser.HomeActivity"
-            android:exported="true" />
-        <activity
             android:name=".ActivityUser.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ActivityUser.MainActivity"
+            android:name=".ActivityUser.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

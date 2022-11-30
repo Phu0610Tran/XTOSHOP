@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.bookshop.DTO.TaiKhoanDTO;
+import com.example.bookshop.Models.TaiKhoanDTO;
 import com.example.bookshop.Fragment.LoginFragment;
 import com.example.bookshop.Fragment.RegisterFragment;
 import com.example.bookshop.R;

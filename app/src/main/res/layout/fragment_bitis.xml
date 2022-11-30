@@ -4,20 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="56dp"
-    android:background="#9DDCE4"
     android:orientation="vertical"
-    tools:context=".Fragment.WebFragment">
+    android:background="#FFFFFF"
+    tools:context=".Fragment.ConverseFragment">
 
     <TextView
-
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:text="Bitis"
         android:layout_margin="20dp"
-        android:textColor="#FFFFFF"
-        android:text="Sách Android"
-
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
         />
     <GridView
         android:id="@+id/gridviewSanPham"
